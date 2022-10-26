@@ -3,30 +3,30 @@
   Workaround bzw. Rückgriff auf LaTex-Befehle, um zentrale Werte immer wieder verwenden zu können.
 -->
 % Abschlussarbeit
-\newcommand{\titel}{Titel der Abschlussarbeit}
-\newcommand{\datum}{01.03.2018}
+\newcommand{\titel}{Performance Evaluation Mobiler Anwendungen}
+\newcommand{\datum}{01.03.2023}
 
 % Autor_in
-\newcommand{\aVorname}{Max}
-\newcommand{\aNachname}{Mustermann}
-\newcommand{\aGeburtsdatum}{01.04.1998}
+\newcommand{\aVorname}{Görkem}
+\newcommand{\aNachname}{Bas}
+\newcommand{\aGeburtsdatum}{24.03.2000}
 \newcommand{\aInstitution}{Hochschule München}
 \newcommand{\aStudiengruppe}{IF7}
-\newcommand{\aSemester}{WS 17/2018}
+\newcommand{\aSemester}{WS 22/2023}
 
 \newcommand{\aName}{\aVorname\space \aNachname}
 
 % Prüfer_in
 \newcommand{\pTitle}{Prof. Dr.}
-\newcommand{\pVorname}{}
-\newcommand{\pNachname}{}
+\newcommand{\pVorname}{Gudrun}
+\newcommand{\pNachname}{Socher}
 \newcommand{\pInstitution}{Hochschule München}
 
 % Betreuer_in
 \newcommand{\bTitle}{Dr.}
-\newcommand{\bVorname}{}
-\newcommand{\bNachname}{}
-\newcommand{\bInstitution}{Firma GmbH}
+\newcommand{\bVorname}{Philipp}
+\newcommand{\bNachname}{Kappinos}
+\newcommand{\bInstitution}{Brunata Metrona GmbH}
 
 \title{\titel}
 \author{\aName}

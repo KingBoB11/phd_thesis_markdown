@@ -1,8 +1,8 @@
-# Erste Untersuchung mit Code
+# Logging zur erhebung Laufzeitrelevanter Daten
 
 ## Einleitung
 
-Das ist die Einleitung. Nam mollis congue tortor, sit amet convallis tortor mollis eget. Fusce viverra ut magna eu sagittis. Vestibulum at ultrices sapien, at elementum urna. Nam a blandit leo, non lobortis quam. Aliquam feugiat turpis vitae tincidunt ultricies. Mauris ullamcorper pellentesque nisl, vel molestie lorem viverra at.
+Logging
 
 ## Methode
 

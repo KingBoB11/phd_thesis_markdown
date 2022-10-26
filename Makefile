@@ -27,12 +27,12 @@ help:
 # other csl styles: https://github.com/citation-style-language/styles
 
 pdf:
-	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.pdf" \
-	-H "$(STYLEDIR)/preamble.tex" \
-	--template="$(STYLEDIR)/template.tex" \
-	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/ref_format.csl" \
+	pandoc Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\01_title_page.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\02_statement.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\03_summary.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\04_acknowledgements.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\05_table_of_contents.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\06_list_of_figures.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\07_list_of_tables.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\08_abbreviations.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\09_chapter_1.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\10_chapter_2.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\11_chapter_3.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\12_chapter_4.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\13_chapter_5.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\14_chapter_6.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\15_conclusion.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\16_appendix_1.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\17_appendix_2.md Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\18_references.md \
+	-o Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\output\thesis.pdf \
+	-H Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\style\preamble.tex \
+	--template=Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\style\template.tex \
+	--bibliography=Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\source\references.bib 2>pandoc.log \
+	--csl=Z:\Semester_7\Bachelor_Arbeit\phd_thesis_markdown\style\ref_format.csl \
 	--highlight-style pygments \
 	-V fontsize=12pt \
 	-V papersize=a4paper \

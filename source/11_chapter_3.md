@@ -2,7 +2,7 @@
 
 ## Einleitung
 
-Logging
+Logging aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren, wird in der Informatik häufig verwendet. Es dient dazu zur Laufzeit Releveante Daten zu sammeln und so das.
 
 ## Methode
 

@@ -25,7 +25,7 @@
 % Betreuer_in
 \newcommand{\bTitle}{Dr.}
 \newcommand{\bVorname}{Philipp}
-\newcommand{\bNachname}{Kappinos}
+\newcommand{\bNachname}{Kapinos}
 \newcommand{\bInstitution}{Brunata Metrona GmbH}
 
 \title{\titel}

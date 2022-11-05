@@ -1,15 +1,17 @@
-# Logging zur erhebung Laufzeitrelevanter Daten
+# Logging als geigneten Methode zur Erhebung Laufzeitrelevanter Daten.
 
-## Einleitung
+## Laufzeitrelevante Daten
 
-Logging aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren, wird in der Informatik häufig verwendet. Es dient dazu zur Laufzeit Releveante Daten zu sammeln und so das.
+
+Logging, aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren, wird in der Informatik zur Dokumentation und verbesserten Nachvolziehbarkeit von Fehlerzuständen und Prozessabläufen verwendet. Logs werden nach einem vom Entwickler Festgelegtem Schemah automatisch Generiert. Dabei entspricht jede Zeile einem neuen Ereignis und wird mit weiteren Informationselementen versehen. Einträge erfolgen in Chronologischer Reihenfolge.
 
 ## Methode
 
-Suspendisse iaculis in lacus ut dignissim. Cras dignissim dictum eleifend. Suspendisse potenti. Suspendisse et nisi suscipit, vestibulum est at, maximus sapien. Sed ut diam tortor.
+Es wurde zur Festlegung der Methodik zur Erhebung Laufzeitrelevanter Daten, eine Qualitaive Analyse der Eigenschaften der Methoden in bezug auf Umsetzbarkeit, Komplexität und einfluss auf zusätzlichen Aufwand untersucht.
 
-### Unterabschnitt 1 mit Beispielcode
+### Logging mit Beispielcode
 
+<!-- Hier Kommt das bereits vorhandene Verfahren der Logs rein, ich gehe darauf ein wie sie funktioniert und werte sie aus und Sage was gut und was schlecht ist.-->
 Das ist der erste Teil der Methodik. Cras porta dui a dolor tincidunt placerat. Cras scelerisque sem et malesuada vestibulum. Vivamus faucibus ligula ac sodales consectetur. Aliquam vel tristique nisl. Aliquam erat volutpat. Pellentesque iaculis enim sit amet posuere facilisis. Integer egestas quam sit amet nunc maximus, id bibendum ex blandit.
 
 Syntaxhervorhebung in Codeblöcken erreicht man mit drei "`" Zeichen vor und nach dem Codeblock.

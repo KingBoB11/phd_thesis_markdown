@@ -2,21 +2,19 @@
 
 ## Laufzeitrelevante Daten
 
-
-Logging, aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren, wird in der Informatik zur Dokumentation und verbesserten Nachvolziehbarkeit von Fehlerzuständen und Prozessabläufen verwendet. Logs werden nach einem vom Entwickler Festgelegtem Schemah automatisch Generiert. Dabei entspricht jede Zeile einem neuen Ereignis und wird mit weiteren Informationselementen versehen. Einträge erfolgen in Chronologischer Reihenfolge.
+Um das Ziel der Performance Evaluation zu erreichen, ist ein notwendiger Schritt die Erhebung relevanter Daten. Relevante Daten sind jene, welche Rückschluss auf die Performance der Anwendung geben. Früher dienten zur Evaluation der Computer Performance meist der Vergleich von CPU Zyklen^[Vgl. Performance Evaluation and Monitoring 1971 S.81]. Nachdem diese Daten nicht mehr aussreichend sind^[Vgl. ebd./a.a.O. - selbe Quelle, selbe Seite], benötigt man auf das Anwedungsgebiet Spezifizierte. In diesem Fall wird die benötigte Zeit für das Abschließen von Prozessen und die Fehlerquote genutzt.
+\newpage
 
 ## Methode
 
-Es wurde zur Festlegung der Methodik zur Erhebung Laufzeitrelevanter Daten, eine Qualitaive Analyse der Eigenschaften der Methoden in bezug auf Umsetzbarkeit, Komplexität und einfluss auf zusätzlichen Aufwand untersucht.
+Es wurde zur Festlegung der Methodik, der Erhebung Laufzeitrelevanter Daten, eine qualitaive Analyse aller Eigenschaften der Methoden in Bezug auf Umsetzbarkeit, Komplexität und Einfluss auf zusätzlichen Aufwand untersucht.
 
 ### Logging mit Beispielcode
 
 <!-- Hier Kommt das bereits vorhandene Verfahren der Logs rein, ich gehe darauf ein wie sie funktioniert und werte sie aus und Sage was gut und was schlecht ist.-->
-Das ist der erste Teil der Methodik. Cras porta dui a dolor tincidunt placerat. Cras scelerisque sem et malesuada vestibulum. Vivamus faucibus ligula ac sodales consectetur. Aliquam vel tristique nisl. Aliquam erat volutpat. Pellentesque iaculis enim sit amet posuere facilisis. Integer egestas quam sit amet nunc maximus, id bibendum ex blandit.
+Logging, aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren, wird in der Informatik zur Dokumentation und verbesserten Nachvolziehbarkeit von Fehlerzuständen und Prozessabläufen verwendet. Logs werden nach einem vom Entwickler Festgelegtem Schemah automatisch Generiert. Dabei entspricht jede Zeile einem neuen Ereignis und wird mit weiteren Informationselementen versehen. Einträge erfolgen in Chronologischer Reihenfolge
 
-Syntaxhervorhebung in Codeblöcken erreicht man mit drei "`" Zeichen vor und nach dem Codeblock.
-
-```python
+```java
 mood = 'happy'
 if mood == 'happy':
     print("I am a happy robot")
@@ -29,8 +27,26 @@ Das ist der zweite Teil der Methodik. Proin tincidunt odio non sem mollis tristi
 <!--
 Kommentare können so hinzugefügt werden.
 -->
+\newpage
 
 ## Ergebnisse
+
+\ref{EvaluationTable}
+
+---------------------------------------------------------------------------
+Umsetzbarkeit            Komplexität        zusätzlicher Aufwand
+--------------      -------------------     -------------------
+Zeile 1               0.1                     0.2
+
+Zeile 2               0.3                     0.3
+
+Zeile 3               0.4                     0.4      
+
+Zeile 4               0.5                     0.6
+
+---------------------------------------------------------------------------
+
+Table:  Eignung der Techniken für die Performance Evaluation. Suspendisse blandit dolor sed tellus venenatis, venenatis fringilla turpis pretium. \label{EvaluationTable}
 
 Das sind die Ergebnisse. Ut accumsan tempus aliquam. Sed massa ex, egestas non libero id, imperdiet scelerisque augue. Duis rutrum ultrices arcu et ultricies. Proin vel elit eu magna mattis vehicula. Sed ex erat, fringilla vel feugiat ut, fringilla non diam.
 

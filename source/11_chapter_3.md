@@ -1,8 +1,8 @@
-# Logging als geigneten Methode zur Erhebung Laufzeitrelevanter Daten.
+#   Methode zur Erhebung Laufzeitrelevanter Daten.
 
 ## Relevante Daten
 
-Um das Ziel der Performance Evaluation zu erreichen, ist die Erhebung relevanter Daten ein notwendiger Schritt. Relevante Daten sind jene, welche Rückschluss auf die Performance der Anwendung geben. Früher dienten zur Evaluation der Computer Performance der Vergleich von CPU Zyklen^[Vgl. Performance Evaluation and Monitoring 1971 S.81]. Nachdem diese Daten nicht mehr aussreichend sind^[Vgl. ebd./a.a.O. - selbe Quelle, selbe Seite], benötigt man auf das Anwedungsgebiet Spezifizierte. Im diesem Fall wird die benötigte Zeit für das Abschließen von Prozessen und die Fehlerquote genutzt.
+Um das Ziel der Performance Evaluation zu erreichen, ist die Erhebung relevanter Daten ein notwendiger Schritt. Relevante Daten sind jene, welche Rückschluss auf die Performance der Anwendung geben. Früher dienten zur Evaluation der Computer Performance der Vergleich von CPU Zyklen^[Vgl. Performance Evaluation and Monitoring 1971 S.81]. Nachdem diese Daten nicht mehr aussreichend sind^[Vgl. ebd./a.a.O. - selbe Quelle, selbe Seite], benötigt man auf das Anwedungsgebiet Spezifizierte. Für die in der Studienarbeit verwendete Anwendung wird die benötigte Zeit für das Abschließen von Prozessen und die Fehlerquote genutzt.
 \newpage
 
 ## Methode
@@ -37,8 +37,7 @@ public void stop(String message) {
 
 ### Modul zur Laufzeiterfassung
 
-
-
+Eine weiter Herangehensweise ist die Implemtierung einer Klasse welche die Erhebung und Speicherung der relevanten Daten übernimmt. Die zu 
 <!--
 Kommentare können so hinzugefügt werden.
 -->

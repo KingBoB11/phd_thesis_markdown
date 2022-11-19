@@ -37,7 +37,7 @@ public void stop(String message) {
 
 ### Modul zur Laufzeiterfassung
 
-Eine weiter Herangehensweise ist die Implemtierung einer Klasse welche die Erhebung und Speicherung der relevanten Daten übernimmt. Die zu 
+Eine weiter Herangehensweise ist die Implemtierung einer Klasse welche die Erhebung und Speicherung der relevanten Daten übernimmt. Die Klasse stellt eine Schnittstelle bereit, an welcher der beginn und die beendigung eines Prozesses übergeben wird. Die Klasse ermittelt die benötigte Zeit und Speichert die gesammelten Daten. Das format der Speicherung richtet sich nach der gewählten methode zur realisierung der graphischen darstellung, welche in Kapitel X behandelt wird.
 <!--
 Kommentare können so hinzugefügt werden.
 -->
@@ -48,19 +48,15 @@ Kommentare können so hinzugefügt werden.
 \ref{EvaluationTable}
 
 ---------------------------------------------------------------------------
-Umsetzbarkeit            Komplexität        zusätzlicher Aufwand
---------------      -------------------     -------------------
-Zeile 1               0.1                     0.2
+Methode         Umsetzbarkeit    Komplexität    Zusätzlicher Aufwand
+--------------  ---------------  -------------  ----------------------  
+logging         5                1              3
 
-Zeile 2               0.3                     0.3
-
-Zeile 3               0.4                     0.4      
-
-Zeile 4               0.5                     0.6
+Modul           5                3              2
 
 ---------------------------------------------------------------------------
 
-Table:  Eignung der Techniken für die Performance Evaluation. Suspendisse blandit dolor sed tellus venenatis, venenatis fringilla turpis pretium. \label{EvaluationTable}
+Table: Zeigt die Methoden zur erhebung Relevanter Daten und ihre eignung in bezug auf Umsetzbarkeit, Komplexität und Zusätzlichen Aufwand. Die zahlen in den zellen sind  . \label{EvaluationTable}
 
 Das sind die Ergebnisse. Ut accumsan tempus aliquam. Sed massa ex, egestas non libero id, imperdiet scelerisque augue. Duis rutrum ultrices arcu et ultricies. Proin vel elit eu magna mattis vehicula. Sed ex erat, fringilla vel feugiat ut, fringilla non diam.
 

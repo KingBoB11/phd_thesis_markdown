@@ -1,4 +1,4 @@
-# Untersuchung mit Tabelle
+# Graphische darstellung
 
 ## Einleitung
 

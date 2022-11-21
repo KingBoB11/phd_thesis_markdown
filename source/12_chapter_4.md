@@ -1,4 +1,4 @@
-# Untersuchung mit Abbildung
+# Auswertung der Logs
 
 ## Einleitung
 

@@ -1,4 +1,4 @@
-# Literaturübersicht mit Mathe
+# Anwendung der Studienarbeit
 
 <!--
 Nach dem einführenden Kapitel ist es üblich, dass ein Kapitel folgt,

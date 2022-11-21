@@ -1,4 +1,4 @@
-#   Methode zur Erhebung Laufzeitrelevanter Daten.
+#  Methode zur Erhebung Laufzeitrelevanter Daten.
 
 ## Relevante Daten
 
@@ -7,7 +7,7 @@ Um das Ziel der Performance Evaluation zu erreichen, ist die Erhebung relevanter
 
 ## Methode
 
-Es wurde zur Festlegung der Methodik, der Erhebung Laufzeitrelevanter Daten, eine qualitaive Analyse der Methoden in Bezug auf Umsetzbarkeit, Komplexität und Einfluss auf zusätzlichen Aufwand untersucht.
+Es wurde zur Festlegung der Methodik, der Erhebung Laufzeitrelevanter Daten, eine qualitaive Analyse der Methoden in Bezug auf Aufwand zum Implementieren, Komplexität und Einfluss auf zusätzlichen Aufwand der durch diese Methode entsteht untersucht.
 
 ### Logging
 
@@ -31,7 +31,8 @@ public void stop() {
 }
 
 public void stop(String message) {
-  Log.d(logTag, "{} took {}ms", message, (System.currentTimeMillis() - timeMillisStart));
+  Log.d(logTag, "{} took {}ms", message,
+   (System.currentTimeMillis() - timeMillisStart));
 }
 ```
 
@@ -45,25 +46,26 @@ Kommentare können so hinzugefügt werden.
 
 ## Ergebnisse
 
-\ref{EvaluationTable}
 
 ---------------------------------------------------------------------------
-Methode         Umsetzbarkeit    Komplexität    Zusätzlicher Aufwand
+Methode         Aufwand          Komplexität    Zusätzlicher Aufwand
 --------------  ---------------  -------------  ----------------------  
-logging         5                1              3
+logging         1                1              3
 
-Modul           5                3              2
+Modul           3                2              1
 
 ---------------------------------------------------------------------------
 
-Table: Zeigt die Methoden zur erhebung Relevanter Daten und ihre eignung in bezug auf Umsetzbarkeit, Komplexität und Zusätzlichen Aufwand. Die zahlen in den zellen sind  . \label{EvaluationTable}
+Table: Zeigt die Methoden zur erhebung Relevanter Daten und ihre eignung in bezug auf Umsetzbarkeit, Komplexität und Zusätzlichen Aufwand. Die zahlen in den zellen sind die bewertung zu den einzelnen Kriterien. Die bewertung unterteilt sich in 3 Kategorien mit entsprechender Zahl. Die "1" steht für gering, die "2" für mittlere und die "3" für hohe Characktereigenschaft. Steht eine 1 bei der Komplexität bedeutet das eine geringe Komplexität. \label{EvaluationTable}
 
-Das sind die Ergebnisse. Ut accumsan tempus aliquam. Sed massa ex, egestas non libero id, imperdiet scelerisque augue. Duis rutrum ultrices arcu et ultricies. Proin vel elit eu magna mattis vehicula. Sed ex erat, fringilla vel feugiat ut, fringilla non diam.
+Die auswertung der Tabelle ergibt das Logging als Methode einen geringen Aufwand, geringe Komplexität und hohen Zusätzlichen Aufwand aufweist. Wohingegen das Modul einen Hohe Aufwand, mittlere Komplexität und mittleren Zusätzlichen Aufwand aufweist.
 
 ## Auseinandersetzung
 
-Das ist die Auseinandersetzung mit den Ergebnissen. Duis ultrices tempor sem vitae convallis. Pellentesque lobortis risus ac nisi varius bibendum. Phasellus volutpat aliquam varius. Mauris vitae neque quis libero volutpat finibus. Nunc diam metus, imperdiet vitae leo sed, varius posuere orci.
+Der geringe Aufwand zur Implementierung des Loggings liegt darin das in der Anwendung der Studienarbeit bereits Logging im gewünschten umfang Implementiert ist. Daher rührt auch die geringe Komplexität. Selbst ohne bestehendes Logging in gewünschter form benötigt die Implementierung oder erweitung durch einer Stopuhr mit Logging funktion in Java 13 Zeilen Code. Siehe Codebeispiel oben. Der hohe zusätzliche Aufwand ensteht dadurch das in der Log Datei nicht nur die gewünschten Performance Daten liegen. Dies führt dazu das in einem nächsten schritt die Logs ausgewertet werden müssen.
+
+Der Hohe Aufwand zur Implemtierung des Moduls ergibt sich einerseits, dadurch das die Klasse samt Schnittstelle sinnvoll Implementiert werden muss. Zusätzlich muss die Schnittstelle an allen gewünschten Performance relevanten Prozessen angesprochen werden. Nachdem die Klasse eine Schnittstelle bereitstellt, sich um die berechnung der benötigten Zeit und der Speicherung kümmert, ist das ganze von mittlerer Komplexität. Der geringe zusätzliche Aufwand rührt durch die selbst bestimmung der form der Abspeicherung. Diese kann so gewählt werden das die Daten direkt Graphisch ausgewertet werden können.
 
 ## Schlussfolgerung
 
-Das ist die Schlussfolgerung des Kapitels. Praesent bibendum urna orci, a venenatis tellus venenatis at. Etiam ornare, est sed lacinia elementum, lectus diam tempor leo, sit amet elementum ex elit id ex. Ut ac viverra turpis. Quisque in nisl auctor, ornare dui ac, consequat tellus.
+Schlussendlich überwiegen die Vorteile des Loggings den großen zusätzlichen Aufwand, sodass in der Studienarbeit Logging und nicht ein eigenes Modul zur erhebung Laufzeitrelevanter Daten genutzt wird. Im nächsten Kapitel wird die Methode zur weiterverarbeitung der Daten Untersucht.

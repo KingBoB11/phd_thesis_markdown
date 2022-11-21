@@ -1,4 +1,4 @@
-# Einleitung mit Zitat
+# Einleitung 
 
 ## Hintergrund
 

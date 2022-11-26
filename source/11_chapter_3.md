@@ -1,4 +1,4 @@
-#  Methode zur Erhebung Laufzeitrelevanter Daten.
+# Erhebung Laufzeitrelevanter Daten.
 
 ## Relevante Daten
 

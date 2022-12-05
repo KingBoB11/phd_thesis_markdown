@@ -1,31 +1,24 @@
-# Anwendung der Studienarbeit
+# Grundlagen
 
-<!--
-Nach dem einführenden Kapitel ist es üblich, dass ein Kapitel folgt,
-das die Literatur begutachtet und in die Methodik einführt wird,
-die während der gesamten Arbeit verwendet wird.
--->
+Das folgende Kapitel schafft die Grundlagen auf der die Umsetzung der Implemtierung basiert. Den Anfang bildet dabei die einführung in die zu Evaluierende Anwendung. Anschließend werden die wichtigsten Bestandteile der Performance Evaluation einer Mobilen Anwendung erläutert und zur weiteren bearbeitung in der Arbeit in 3 Abschnitte unterteilt.
 
-## Einleitung
+## geMo
 
-Das ist die Einleitung. Duis in neque felis. In hac habitasse platea dictumst. Cras eget rutrum elit. Pellentesque tristique venenatis pellentesque. Cras eu dignissim quam, vel sodales felis. Vestibulum efficitur justo a nibh cursus eleifend. Integer ultrices lorem at nunc efficitur lobortis.
+geMo **ge**meinsame **Mo**ntagelösung übernimmt die Aufgabe, die Arbeitsschritte der Mess- und Montagepartner zu bündeln. Dabei ist es möglich, über die App Termine für die Ablesung von Zählerwerten, sowie der Montage von Geräten wie Rauchmeldern, zu erstellen. Des Weiteren leitet und Kontrolliert die App den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können.
 
-## Der Mittelteil
+## Performance Evaluation
 
-Das ist die Literaturübersicht. Nullam quam odio, volutpat ac ornare quis, vestibulum nec nulla. Aenean nec dapibus in mL/min^-1^. Mathematical formula can be inserted using Latex:
 
-(@ref_for_eqn1) $f(x) = ax^3 + bx^2 + cx + d$
 
-Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.  
+## Ziele einer Evaluation
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed faucibus pulvinar volutpat. Ut semper fringilla erat non dapibus. Nunc vitae felis eget purus placerat finibus laoreet ut nibh.
+Es lassen sich allgemeine drei Ziele für eine Performance Evaluation zussamenfassen: Anwendungsbewertung, Leistungsprognose und Leistungsüberwachung.
+<!-- Die Performance Evaluation Mobiler Anwendungen lassen sich auf drei allgemeine Gründe zurückführen: Auswahlbewertung, Leistungsprognose und Leistungsüberwachung. -->
 
-## Fazit
+Bei der Anwendungsbewertung wird die Leistung als Hauptkrietrium zur bewertung und Entscheidungsfindung einer passenden Anwendung herangezogen. Um eine Evaluation durchzuführen muss mindestens ein prototyp der Anwedung zur Verfügung stehen.
 
-Das ist das Fazit. Donec pulvinar molestie urna eu faucibus. In tristique ut neque vel eleifend. Morbi ut massa vitae diam gravida iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Eine Leistungsprognose dient der Unterstützung bei der Neuentwicklung oder Erweitung einer Anwedung. Das Ziel ist es dabei, die Machbarkeit und Leistung eines Entwurfs vor der endgültigen Entwicklung abzuschätzen.
 
-<!-- Eine ungeordnete Liste -->
+Die Leistungsüberwachung liefert tatsächliche leistungsdaten einer Anwedung. Diese Daten können verwendet werden, um die Auswirkung von änderungen in der Anwedung zu erkennen und gezielt entstandene Probleme zu beheben. Mithilfe der Daten könnte ein Nutzungsprofil erstellt werden um Strategische Entscheidungen zu treffen.^[Vgl. Performance Evaluation and Monitoring 1971 S.79-81 [@perfomance_evaluation]]
 
-- erstes Element der Liste
-- zweites Element der Liste
-- drittes Element der Liste
+### Performance Monitoring

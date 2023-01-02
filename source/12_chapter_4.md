@@ -1,14 +1,8 @@
-# Auswertung der Logs
+# Erörterung Volltextsuche und Analyse
 
-## Einleitung
+##
 
-Das ist die Einleitung. Sed vulputate tortor at nisl blandit interdum. Cras sagittis massa ex, quis eleifend purus condimentum congue. Maecenas tristique, justo vitae efficitur mollis, mi nulla varius elit, in consequat ligula nulla ut augue. Phasellus diam sapien, placerat sit amet tempor non, lobortis tempus ante.
-
-## Methode
-
-Donec imperdiet, lectus vestibulum sagittis tempus, turpis dolor euismod justo, vel tempus neque libero sit amet tortor. Nam cursus commodo tincidunt.
-
-### Unterabschnitt 1
+Bisher werden die performance Probleme der Gemo Anwendung, die bei der Ablesung oder der Montage auftreten, nicht behandelt 
 
 Das ist der erste Teil der Methodik. Duis tempor sapien sed tellus ultrices blandit. Sed porta mauris tortor, eu vulputate arcu dapibus ac. Curabitur sodales at felis efficitur sollicitudin. Quisque at neque sollicitudin, mollis arcu vitae, faucibus tellus.
 

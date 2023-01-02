@@ -1,8 +1,34 @@
-# Graphische darstellung
+# Konzept der Anwendung
+<!--  -->
+## Datenerfassung
 
-## Einleitung
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{source/figures/datensatz.jpeg}
+\caption{Beispieldatensatz der Abspeicherung von Geräte Logs auf dem FTP-Server
+\label{Beispieldatensatz}}
+\end{figure}
+Bisher loggt die Anwendung, die benötigte Zeit zum Abschließen von Performance Relevanten Prozessen. Dazu wird beim Aufruf eines Prozesses eine Stoppuhr gestartet, welche mit Beendigung des Prozesses die verstrichene Zeit als Log Dokumentiert. Intern ist festgelegt, dass am ende des Tages und im Falle eines Geräte oder Anwendung Absturzes die Logs des Gerätes automatisch auf den Internen FTP-Server der Brunata geladen werden.
+Jeder eingegangen Satz an Log Daten wird unter dem Gerätenamen, sowie die Logs untergeordnet unter dem Anwendungsnamen, abgespeichert. Ein Beispiel ist in Abbildung \ref{Beispieldatensatz} zu sehen. Im Rahmen dieser Arbeit werden nur Logs der Anwendung GEMO betrachtet. 
 
-Das ist die Einleitung. Sed vulputate tortor at nisl blandit interdum. Cras sagittis massa ex, quis eleifend purus condimentum congue. Maecenas tristique, justo vitae efficitur mollis, mi nulla varius elit, in consequat ligula nulla ut augue. Phasellus diam sapien, placerat sit amet tempor non, lobortis tempus ante.
+## Datenverarbeitung 
+
+Für die Verarbeitung der Logdaten wird Elasticsearch benutzt[@el2].<!-- > Es baut auf der Apache Lucene-Bibliothek auf und ermöglicht durch die Verwendung von Runtimefields und Scripting, Felder und Ausdrücke zur Laufzeit ohne erneute Indexierung zu Extrahieren[@el1]. Die Extraktion ohne erneute Indexierung Spart Speicher und erhöht die Verarbeitungsgeschwindigkeit[@el].--> Die Verarbeitung besteht dabei aus Drei Schritten: Strukturierung der Datei, Indexierung und Anwendung der Runtimefields. Zur Strukturierung wird ein Grokpattern verwendet und mit einem Mapping wird bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Mithilfe von Scripts und Grokpattern in Runtimefields werden der Prozessname und die benötigte Zeit aus unseren Strukturierten und Indexierten Feldern extrahiert.
+
+## Visualisierung der Daten
+
+Für die Graphische Darstellung der Daten wird Kibana verwendet. Dazu wird ein Data View auf den Indexierten Daten erzeugt. 
+ Kibana Zur Visualisierung wird in Kibana ein Data View erstellt welches auf unsere Indexierten Daten basiert. Zur Graphischen Darstellung wird 
+Kibana ist eine Open-Source-Visualisierungs- und Analyseplattform, die auf Elasticsearch aufbaut und von der Firma Elastic entwickelt wird. Kibana ermöglicht es die über Elasticsearch verarbeiteten Daten auf vielfältige weise zu Visualisieren. 
+ Kibana greift dazu in "Data Views" auf einen oder mehrere Elasticsearch Daten ströme, Indices oder benannten index zu. Eine Data View stellt dafür Dashboards zur Verfügung in welchen man die Daten seinen Wünschen entsprechend Graphisch darstellen kann. Die Ausgewerteten Daten werden in einem Dashboard in Form eines Graphen Visualisiert.
+<!--
+## Datenextraktion 
+
+Für die Extraktion werden unterschiedliche Runtimefields in Kombination mit Grok Pattern verwendet. 
+Elasticsearch bietet eine einfache und kostenlose Benutzung der Such und Extrahier Methoden im gegensatz zu
+Die Prozesszeiten mit dem Zugehörigen Prozessen aus einem Log werden mithilfe eines Runtimefields in Kombination mit einem Grok Pattern extrahiert. 
+
+
 
 ## Methode
 
@@ -18,13 +44,13 @@ Das ist der zweite Teil der Methodik. Sed ut ipsum ultrices, interdum ipsum vel,
 
 <!--
 Kommentare können so hinzugefügt werden.
--->
+
 
 ## Ergebnisse
 
 Die Tabelle \ref{tabellenreferenz} zeigt uns wie man eine Tabelle hinzufügt. Integer tincidunt sed nisl eget pellentesque. Mauris eleifend, nisl non lobortis fringilla, sapien eros aliquet orci, vitae pretium massa neque eu turpis. Pellentesque tincidunt aliquet volutpat. Ut ornare dui id ex sodales laoreet.
 
-<!-- Erzwingt eine neue Seite -->
+<!-- Erzwingt eine neue Seite 
 
 \newpage
 
@@ -51,3 +77,4 @@ Das ist die Auseinandersetzung mit den Ergebnissen. Etiam sit amet mi eros. Done
 ## Schlussfolgerung
 
 Das ist die Schlussfolgerung des Kapitels. Nullam porta tortor id vehicula interdum. Quisque pharetra, neque ut accumsan suscipit, orci orci commodo tortor, ac finibus est turpis eget justo. Cras sodales nibh nec mauris laoreet iaculis. Morbi volutpat orci felis, id condimentum nulla suscipit eu. Fusce in turpis quis ligula tempus scelerisque eget quis odio. Vestibulum et dolor id erat lobortis ullamcorper quis at sem.
+-->

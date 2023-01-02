@@ -2,11 +2,11 @@
   Zentrale Variablen:
   Workaround bzw. Rückgriff auf LaTex-Befehle, um zentrale Werte immer wieder verwenden zu können.
 -->
-% Abschlussarbeit
+
 \newcommand{\titel}{Performance Evaluation Mobiler Anwendungen}
 \newcommand{\datum}{01.03.2023}
 
-% Autor_in
+
 \newcommand{\aVorname}{Görkem}
 \newcommand{\aNachname}{Bas}
 \newcommand{\aGeburtsdatum}{24.03.2000}
@@ -16,14 +16,14 @@
 
 \newcommand{\aName}{\aVorname\space \aNachname}
 
-% Prüfer_in
+
 \newcommand{\pTitle}{Prof. Dr.}
 \newcommand{\pVorname}{Gudrun}
 \newcommand{\pNachname}{Socher}
 \newcommand{\pInstitution}{Hochschule München}
 
-% Betreuer_in
-\newcommand{\bTitle}{Dr.}
+
+\newcommand{\bTitle}{}
 \newcommand{\bVorname}{Philipp}
 \newcommand{\bNachname}{Kapinos}
 \newcommand{\bInstitution}{Brunata Metrona GmbH}

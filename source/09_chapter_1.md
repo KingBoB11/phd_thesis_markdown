@@ -34,24 +34,33 @@ ist der Prozess zur Bewertung der Qualität, Zuverlässigkeit und Leistung einer
 
 ## Das Unternehmen Brunata-Metrona
 
-Die BRUNATA METRONA GmbH & Co. KG hat ihren Ursprung im Jahr 1958. Dass wie heute üblich jeder Haushalt nur seinen tatsächlichen Wärme- und Wasserverbrauch bezahlen muss, war damals Anreiz und Idee für die Firma BRUNATA Wärmemesser GmbH & Co. KG. Mittlerweile ist das Unternehmen unter dem Namen BRUNATA METRONA GmbH & Co. KG. tätig. Zum Geschäftsfeld der Brunata gehört unter anderem die installation von fernablesbaren Messgeräten wie Heizkostenverteiler zur Ermittlung der Heiz- und Wasserkosten. Zur Planung, Ablesung und Sicherstellung des Korrekten einbaus der Geräte stellt die Brunata die Mobile Anwendung "Gemo" ihren Mess- und Montagepartner zur Verfügung. 
+Die BRUNATA METRONA GmbH & Co. KG hat ihren Ursprung im Jahr 1958. Dass wie heute üblich jeder Haushalt nur seinen tatsächlichen Wärme- und Wasserverbrauch bezahlen muss, war damals Anreiz und Idee für die Firma BRUNATA Wärmemesser GmbH & Co. KG. Mittlerweile ist das Unternehmen unter dem Namen BRUNATA METRONA GmbH & Co. KG. tätig. Zum Geschäftsfeld der Brunata gehört unter anderem die installation von fernablesbaren Messgeräten. Dazu gehören Heizkostenverteiler und Wasserzähler. Diese dienen zur Ermittlung der Heiz- und Wasserkosten. 
+Den Mess- und Montagepartnern wird die eigens Entwickeltet Mobile Anwendung "Gemo" zur Verfügung gestellt. Die Anwendung steuert dabei, von der Planung eines Auftrags bis zur Ablesung einer Liegenschaft, alle Anfallenden Aufgaben eines Monteurs.
 
 ## Ziel der Arbeit
 
-Jedes Jahr erstellt die Brunata Abrechnungen für ca. 125.000 Liegenschaften. Um die notwendigen Messdaten der Heizkörper und Wasserzähler zu erhalten, installieren Monteure Messgeräte. Nach einem Zeitraum von 12 Monaten werden die Verbrauchsstände dann von einem Ableser erfasst. Die gesammelten Daten werden mithilfe der eigens entwickelten Gemo-App verarbeitet und anschließend ins SAP System übertragen. Da bei der Nutzung der App auch Fehler entstehen können, werden Abstürze der App automatisch gemeldet. Manche dieser Fehler führen nicht zu einem Absturz der App sondern beeinträchtigen lediglich die Leistung wie z. B. eine lange Ladezeit. Das hat zur Folge das Performance Probleme lange unerkannt bleiben. Das wirft die Problematik auf das die aktuelle Nutzung von Stresstests mit verschiedenen Daten alleine nicht ausreicht um alle Performance Probleme die im real betrieb auftreten können zu erkennen. 
-Das Ziel dieser Arbeit ist es, eine Performance Evaluation zu erstellen, die die im betrieb befindlichen Gemo-Apps Evaluiert, sodass mithilfe der Graphischen Darstellung der Leistung, im real betrieb auftretende Performance Probleme, erkannt und behoben werden können. Ein Zufriedenstellendes Ergebnis wird erlangt, wenn Graphisch die benötigte Zeit für Prozesse der Gemo-App dargestellt wird.
+Jedes Jahr erstellt die Brunata Abrechnungen für ca. 125.000 Liegenschaften. Nach einem Zeitraum von 12 Monaten werden die Verbrauchsstände dann von einem Ableser erfasst. Die gesammelten Daten werden mithilfe der eigens entwickelten Gemo-App verarbeitet und anschließend ins SAP System übertragen. Da bei der Nutzung der App auch Fehler entstehen können, werden Abstürze der App automatisch gemeldet. Manche dieser Fehler führen nicht zu einem Absturz der App sondern beeinträchtigen lediglich die Leistung wie z. B. eine lange Ladezeit. Diese Fehler müssten von Monteur selbständig nach Abschluss der Arbeit gemeldet werden. Das hat zur Folge das Performance Probleme lange unerkannt bleiben und Arbeitsprozesse länger brauchen als notwendig. Das wirft die Problematik auf das nicht alle Performanzprobleme die im real betrieb auftreten können durch den aktuellen Umfang an tests erkannt werden. 
+Das Ziel dieser Arbeit ist es, bisher unerkannte Leistungsprobleme wie lange Ladezeiten zu erkennen und zu beheben.
+
 <!--
+der aktuelle Umfang des Testing nicht ausreicht um alle Performance Probleme zu erkennen die im real betrieb auftreten können.
+Das wirft die Problematik auf das die aktuelle Nutzung von Stresstests mit verschiedenen Daten alleine nicht ausreicht um alle Performance Probleme die im real betrieb auftreten können zu erkennen. 
 
 EInarbeitung kostet geld bzw Schlecht fürs unternehemn einabu das Monteure melden können 
+
+Das Ziel dieser Arbeit ist es, eine Performance Evaluation zu erstellen, die die im betrieb befindlichen Gemo-Apps Evaluiert, sodass mithilfe der Graphischen Darstellung der Leistung, im real betrieb auftretende Performance Probleme, erkannt und behoben werden können. Ein Zufriedenstellendes Ergebnis wird erlangt, wenn Graphisch die benötigte Zeit für Prozesse der Gemo-App dargestellt wird.
+
 Das Ziel dieser Arbeit ist die Auseinandersetzung mit der Thematik "Performance Evaluation Mobiler Anwendungen" und der Implementierung einer Performance Evaluation der GEMO App. Um dieses Ziel zu erreichen, wird zunächst die bestehende Anwendung identifiziert, Essentielle Aspekte der Performance Evaluation ermittelt und bestehende Technologien analysiert. Anschließend wird jeweils für die ermittelten Aspekte ein Technologienvergleich gezogen, der die für die Anwendung geeignetste Implementierung wählen soll. Zum Schluss soll die Evaluation Graphisch Dargestellt werden, um eine erleichterte Übersichtlichkeit zu ermöglichen. Durch die Flächendeckende Performance Evaluation der sich in Nutzung befindlichen GEMO Apps, sollen Probleme in der Anwendung schneller erkannt und effizienter behoben werden.<!-- Kommt Wahrscheinlich weg  Die erhaltenen Informationen in strukturierter und Informativer Graphischen Darstellung sind für das Unternehmen selbst sowie für die Entwickler eine Unterstützung.-->
 
-## Struktur und Vorgehensweise
+
 
 <!--
+## Struktur und Vorgehensweise
 kursiv: * auf beiden Seiten des Textes
 fett: **
 kursiv und fett: ***
--->
+
 Ich bin mir noch nicht sicher was ich anstelle dessen hinschreibe ich habe mir überlegt ich könnte die Aufgabenstellung präzisieren aber bin mir nicht sicher ob das so wirklich sinn macht.
 
 Dies ist ein kurzer Überblick darüber, was in jedem Kapitel geschrieben wurde. **Kapitel 1** gibt eine ausführliche Darstellung der Motivation sowie des Ziels welches mit der Bachelorarbeit verfolgt wird. **Kapitel 2** Erläutert und Untersucht die Aspekte der Performance Evaluation Mobiler Anwendungen, vorhandene Technologie und die zu Evaluierende Anwendung GEMO **Kapitel 3** Beginnt mit der Einführung in die Implementierung der Evaluation und Präzisiert dazu den Prozess der Erhebung Laufzeitrelevanter Daten  **Kapitel 4** zeigt wie phasellus gravida non ex id aliquet. Proin faucibus nibh sit amet augue blandit varius.
+-->

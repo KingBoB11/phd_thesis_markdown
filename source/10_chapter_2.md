@@ -35,7 +35,88 @@ Die Performance Evaluation Mobiler Anwendungen ist der Prozess zur Bewertung der
 -->
 
 ## Aktueller Stand 
-<!-- Gehe darauf ein wie aktuell probleme behandelt wewrden hochladen der Logs und Datanbak in FTP und dann bearbeitung durch einen ENtwickler der das ganze nochmal überprüft und Gggf behandelt 
+
+Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die Logdatei des Geräts nach dem Problem. Die Logdateien umfassen ca 5000 Zeilen und sind nach dem Schema: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert wie der Log ausschnitt in Abbildung \ref{logs} veranschaulicht. Die Anwendungen Loggen die benötigte Zeit von Prozessen und Anfragen.  
+ und behandelt es wenn eins nachgewiesen wird. Die Logdateien umfassen ca 5000 Zeilen. Die untersuchung durch den Entwickler ist dadurch Zeitintensiv. 
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{source/figures/logs.PNG}
+\caption{Ausschnitt aus einer Logdatei}
+\label{logs}
+\end{figure} 
+Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Zusätzlich zeigt sich das benötigte Prozesszeiten geloggt werden.
+
+## Analyse der Daten 
+
+
+Um die überprüfung der Logdaten durch einen Entwickler zu ersetzen 
+Die Größe von ca 5000 Zeilen einer Logdatei erschweren die überprüfung des Problems für den Entwickler und der Prozess sollte zur Entlastung und Zeitersparnis Automatisiert werden.
+
+Es gibt eine Vielzahl von Analysetechniken, die zur Bewertung der Leistung einer Anwendung eingesetzt werden können. Zu diesen Techniken gehören Regressionsanalyse, Maschinelles Lernen und Data Mining.
+
+### Regressionsanalyse 
+
+Die Regressionsanalyse ist ein statistisches Verfahren, mit dem Beziehungen zwischen Variablen ermittelt werden kann.[@reg] Die Regressionsanalyse beginnt mit der Festlegung einer abhängigen Variablen, die das Ergebnis oder das Ausgangsergebnis darstellt, das untersucht werden soll. Danach werden eine oder mehrere unabhängige Variablen identifiziert, die Einfluss auf das Ergebnis haben. Die abhängige Variable ist der Faktor, der durch die unabhängigen Variablen beeinflusst wird. 
+
+### Maschinelles Lernen
+
+Maschinelles Lernen ist ein Teilgebiet der künstlichen Intelligenz. Es befasst sich mit Algorithmen welche auf basis von Trainingsdaten automatisiert erwünschtes Verhalten erlernen.[@Maschinelles] Dabei sollte das Prinzip der Generalisierung gewahrt werde. Das bedeutet, ein erstelltes Modell kann auch auf unbekannte Daten das gewünschte Verhalten liefern.
+
+Es wird beim Maschinellen Lernen zwischen verschiedenen Arten unterschieden:
+
+1. Überwachtes Lernen
+   
+2. Unüberwachtes Lernen
+
+3. Bestärkendes Lernen
+
+Beim überwachtem Lernen wird anhand von klassifizierten Daten ein Modell trainiert, das unbekannte Eingabewerte auf sinnvolle Zielwerte abbildet.[@maschArt] Beim unüberwachten Lernen dagegen werden die Daten nicht klassifiziert. Das Modell soll Strukturen, sogenannte Cluster, in den Daten erkennen. Es gibt dabei kein Zielwert als vorgabe.[@maschArt] Beim bestärkenden Lernen wird das Modell durch ein Belohnungssystem Trainiert. Dazu wird dem Modell durch Belohnung und Bestrafung mitgeteilt, ob seine Entscheidungen korrekt oder falsch waren. Dies hat zur Folge, dass zukünftige Entscheidungen entweder weiterverfolgt oder geändert werden[@Maschinelles] 
+
+### Data Mining
+
+Data Mining (auch als Knowledge Discovery in Databases (KDD) bezeichnet) ist ein Prozess, um Muster und Strukturen aus relativ komplex Strukturierten Datenbeständen zu extrahieren.[@data] Es gibt verschiedene Modelle um Data Mining Prozesse zu entwickeln.[@data] Ein branchenübergreifende Prozess dafür ist CRISP-DM (CRoss-Industry Standard Process for Data Mining) siehe Abbildung \ref{crisp}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/crisp.PNG}
+\caption{Prozessdiagramm veranschaulicht die Beziehung zwischen den verschiedenen Phasen des CRISP-DM Prozesses. Illustration von Kenneth Jensen, basierend auf IBN SPSS Modeler CRISP-DM Guide [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons}
+\label{crisp}
+\end{figure} 
+
+Aus der Abbildung \ref{crisp} wird deutlich das es sich nicht um einen Linearen Prozess handelt. Der Prozess unterteilt sich in Sechs Phasen. Die erste Phase das "Business Understanding" konzentriert sich auf die Präzisierung der betriebs-wirtschaftlichen Problemstellung. Diese bildet die Grundlage für das weiterverfahren im Data Mining Prozess. Eine Auswahl an Relevante Daten, ist nach der Formulierung der Ziele zu treffen. Die Phase lässt sich dabei in Vier Schritte zussamenfassen. Daten sammeln, Daten beschreiben, Untersuchung der Daten und Bewertung der Daten. Die dritte Phase "Daten Preperation" umfasst die notwendige Schritte zur Vorbereitung der Datenmenge zur Analyse in der Modellierung. Hierbei werden die Daten unter anderem Bereinigt und Transformiert. Es können mehrere Modellierungstechniken für eine Problemstellung zum Einsatz kommen. Diese stellen können besondere Anforderungen an die Datenstruktur stelle. Das hat zur Folge das zurück in die dritte Phase übergegangen wird. Die Fünfte Phase "Evaluation" befasst sich mit der Bewertung des Modells. Dabei wird überprüft ob die Zielsetzung mit dem Entwickelten Modell realisiert und Qualitativ abgesichert wird. Lassen sich die Anforderungen nicht erfüllen, wird der Prozess erneut durchlaufen. Die "Deployment" Phase bildet den Abschluss und präsentiert in angemessener Form die Ergebnisse dem Benutzer. Abbildung \ref{crisp} zeigt das Beschriebene Konzept im Überblick. 
+
+Es gibt verschiedene Methoden für das Data Mining dazu gehören Clusteranalysen, Bayes-Statistik sowie Maschinelles Lernen.[@data] 
+Die Clusteranalyse versucht, aufgrund der zwischen den Objekten vorhandenen Proximität eine gegebene Anzahl von Objekten in Gruppen aufzuteilen oder zu Gruppen zusammenzufassen, wobei sowohl eine herkömmliche als auch eine konzeptuelle Clustermethode angewendet werden kann.[@data] 
+
+Hier kommt noch Bayes Statistik und Verweis auf Maschinelles Lernen.
+
+
+Für ein Aussagekräftiges Data Mining ergebnis ist die Qualität der Daten eine Voraussetzung. Fehlerhafte oder unvollständige Daten wirken sich negativ auf das Ergebnis aus. Der Schutz der Daten vor Missbrauch und Diebstahl sowie die einhaltung der geltenden Datenschutzverordnung bei der Verarbeitung sind beim Data Mining zu beachten. 
+
+Text Mining ist eine Spezialisierung von Data Mining wenn es sich bei den behandelten Daten um einen Text handelt. Es gibt einige Daten Spezifische Besonderheiten bei der Bearbeitung von Texten im gegensatz zu normalen Daten wie Datenbankdaten. Eine reihe von Spezifischen Methoden und Ansätzen
+ Es 
+
+ <!--
+ mithilfe der Logs das gemeldete Problem. Falls ein Problem nachgewiesen wird durch den Entwickler behandelt er dieses. 
+Über die in Abbildung \ref{logs} zu sehenden Knopf "Logdatein senden" werden die Logdaten des Gerätes auf den Internen FTP-Server der Brunata hochgeladen.
+
+
+Abbildung \ref{logs} zeigt das Schemah für den aufbau der logs auf.
+Die Logs sind dabei nach folgendem Schemah aufgebaut: Zeitstempel im ISO8601 Format des Aufrufs, Klasse oder Prozess des Aufrufs, Loglevel und beschreibung des Ereignis. Ein BeispieIn der Abbildung \ref{logs} ist ein Ausschnitt aus einer Logdatei und das Schemah der logs zu sehen. Ein Log beginnt mit dem 
+
+ Tritt bei der Verwendung einer Mobilen Anwendung der Brunata ein Performanzproblem auf kann der Monteur das Problem Melden. Dabei werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata hochgeladen. Ein Entwickler untersucht über die gesendete Logdatei das gemeldete Problem.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{source/figures/logssenden.jpeg}
+\caption{Ausschnitt aus der Gemo App zum Hochladen der Geräte Logs}
+\label{logs}
+\end{figure}
+Abbildung \ref{logs} 
+ und über die Anwendung die Logs und Datenbank seines Gerätes auf den Internen FTP-Server der Brunata Hochladen. 
+kann der Monteuer nach Abschluss der Arbeit das Problem Melden und die Logs und Datenbank seines Geräts auf den internen FTP-Server der Brunata Hochladen
+
+ Gehe darauf ein wie aktuell probleme behandelt wewrden hochladen der Logs und Datanbak in FTP und dann bearbeitung durch einen ENtwickler der das ganze nochmal überprüft und Gggf behandelt 
 Aufbau der Logs mit beispiel eines Logs 
 danach das Problem das daraus folgt  logs sehr groß und das sollte automatisiert werden 
 
@@ -45,7 +126,6 @@ Danach erkläre verfahren Vorteile und Nachteile und abschließend bewerte sie u
 Probleme und Mögliche Angriffe durch weitergavbe von Daten 
 
 Nächster Schritt aufbereitung der Daten erklärung der einzelenen therorie bausteinen
--->
 
 ### Datenerfassung
 
@@ -54,6 +134,9 @@ Bei der Bewertung der Leistung einer mobilen Anwendung müssen zunächst Daten g
 Bei der direkten Datenerfassung werden die Daten direkt von der mobilen Anwendung selbst erfasst. Dazu gehören die Messung der Antwortzeit bestimmter Funktionen oder die Messung der Speichernutzung der mobilen Anwendung.
 
 Bei der indirekten Datenerfassung werden Daten aus Quellen gesammelt, die nicht direkt mit der mobilen Anwendung zusammenhängen. Dazu gehören die Sammlung von Daten aus Umfragen zum Benutzerfeedback, Kundenrezensionen oder anderen Quellen.
+-->
+
+<!-- >
 
 ### Analyse der Daten
 
@@ -79,6 +162,7 @@ Bei einer Performance Evaluation wird die Leistung einer Anwendung oder eines Sy
 Es lassen sich allgemeine drei Ziele für eine Performance Evaluation zusammenfassen: Anwendungsbewertung, Leistungsprognose und Leistungsüberwachung.
 <!-- Die Performance Evaluation Mobiler Anwendungen lassen sich auf drei allgemeine Gründe zurückführen: Auswahlbewertung, Leistungsprognose und Leistungsüberwachung. -->
 
+<!--
 ## Elastic Search
 
 Elasticsearch ist eine Open-Source-Suchmaschine, die auf der Apache Lucene-Bibliothek aufbaut. Sie wurde 2010 von Shay Banon entworfen, entwickelt und 2014 als kommerzielles Produkt veröffentlicht. Es handelt sich um eine verteilte Echtzeit-Such- und Analyse-Engine, die in der Lage ist, strukturierte, halbstrukturierte und unstrukturierte Daten zu speichern, abzurufen und zu verwalten. Das Hauptziel von Elasticsearch ist die Bereitstellung einer verteilten Echtzeit-Such- und Analyseplattform, die schnell, zuverlässig und sicher ist.  
@@ -127,3 +211,5 @@ APM ist ein Verfahren zur Bewertung der Leistung einer mobilen Anwendung. Es die
 ### Benchmarken
 
 Benchmarken ist ein Verfahren das zur Bewertung der Leistung einer Mobilen Anwendung eingesetzt wird. Dabei wird die Leistung einer Anwendung mit ähnlichen Anwendungen auf dem Markt verglichen, um die relative Leistung der Anwendung zu ermitteln. In der Regel werden damit die Reaktionsfähigkeit, die Speichernutzung, die Benutzerfreundlichkeit, die Skalierbarkeit und die Sicherheit der Anwendung gemessen. Benchmarken kann auch dazu beitragen, verbesserungswürdige Bereiche zu identifizieren und den Entwicklern zu helfen, Änderungen zur Verbesserung der Anwendungsleistung zu priorisieren. Diese Bewertungsmethode hilft sicherzustellen, dass die Anwendung die Erwartungen der Benutzer erfüllt und auf dem Markt erfolgreich sein kann.
+
+-->

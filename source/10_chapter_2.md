@@ -14,7 +14,23 @@ Bild homescreen und funktionen der APP
 
 ## Aktuelle Anwendung
 
-Die Brunata nutzt zur Bündelung der Arbeitsschritte der Mess- und Montagepartner die eigens entwickelte App geMo (**ge**meinsame **Mo**ntagelösung). Dabei ist es möglich, über die App Termine für die Ablesung von Zählerwerten, sowie der Montage von Geräten wie Rauchmeldern, zu erstellen. Des Weiteren leitet und Kontrolliert die App den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual Private Network, ist ein geschlossenes Netzwerk, welches zum transport privater Daten, ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Bei der Synchronisation von Daten über einen mobilen Client, werden diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Platform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung Mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile), Verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung, sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser, für die Anbindung an das ERP System (Backend), decodiert.  Mithilfe von RFC^[Remote Function Call: SAP-Schnittstelle, ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und Strukturiert die Daten. Die untenstehende Abbildung veranschaulicht die drei Komponenten und ihre Interaktion miteinander.
+
+<!-- >
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=2\textheight]{source/figures/aufbau.PNG}
+\caption{Anwendungs Umfeld und Aufbau bei Brunata}
+\label{aufbau}
+\end{figure}
+Abbildung \ref{aufbau} veranschaulicht die Anwendungen und den Aufbau. --> 
+Die Brunata nutzt zur Bündelung der Arbeitsschritte der Mess- und Montagepartner eigens entwickelte Apps. Die Anwendung Gemo bündelt die Funktionen der Anwendugen und ist die Schnittstelle für Mess- und Montage Partner.
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/gemo.jpeg}
+\caption{Screenshot aus der Anwendung Gemo}
+\label{gemo}
+\end{figure}
+Wie Abbildung \ref{gemo} veranschaulicht ist es möglich, über die App Termine für die Ablesung von Zählerwerten, sowie der Montage von Geräten zu erstellen. Des Weiteren leitet und Kontrolliert die App den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können. Die gesammelten Daten werden über die Funktion Synchronisieren ins SAP System geladen. Zur geschützten Datenübertragung wird  das mobile Internet mit der VPN-Technologie^[VPN Virtual Private Network, ist ein geschlossenes Netzwerk, welches zum transport privater Daten, ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Bei der Synchronisation von Daten über einen mobilen Client, werden diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Platform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung Mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile), Verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung, sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser, für die Anbindung an das ERP System (Backend), decodiert.  Mithilfe von RFC^[Remote Function Call: SAP-Schnittstelle, ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und Strukturiert die Daten. Die untenstehende Abbildung veranschaulicht die drei Komponenten und ihre Interaktion miteinander.
 
 ![Architekturkomponenten bei Brunata](Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png "Architekturkomponenten bei Brunata")
 
@@ -36,23 +52,19 @@ Die Performance Evaluation Mobiler Anwendungen ist der Prozess zur Bewertung der
 
 ## Aktueller Stand 
 
-Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die Logdatei des Geräts nach dem Problem. Die Logdateien umfassen ca 5000 Zeilen und sind nach dem Schema: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert wie der Log ausschnitt in Abbildung \ref{logs} veranschaulicht. Die Anwendungen Loggen die benötigte Zeit von Prozessen und Anfragen.  
- und behandelt es wenn eins nachgewiesen wird. Die Logdateien umfassen ca 5000 Zeilen. Die untersuchung durch den Entwickler ist dadurch Zeitintensiv. 
+Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die hochgeladenen Logdaten des Geräts nach dem Problem. Dabei dient die benötigte Zeit von Prozessen und Anfragen die geloggt wird als Anhaltspunkt für Leistungsprobleme. Die Logdateien umfassen ca 5000 Zeilen und sind nach dem Schema: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert wie der Log ausschnitt in Abbildung \ref{logs} veranschaulicht.
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{source/figures/logs.PNG}
 \caption{Ausschnitt aus einer Logdatei}
 \label{logs}
 \end{figure} 
-Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Zusätzlich zeigt sich das benötigte Prozesszeiten geloggt werden.
+<!--
+Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Die benötigte Zeit von Prozessen wird geloggt und dient als Anhaltspunkt für Leistungsprobleme. Die durch einen Entwickler zu untersuchenden Logs umfassen ca 5000 Zeilen oder mehr. -->
 
 ## Analyse der Daten 
 
-
-Um die überprüfung der Logdaten durch einen Entwickler zu ersetzen 
-Die Größe von ca 5000 Zeilen einer Logdatei erschweren die überprüfung des Problems für den Entwickler und der Prozess sollte zur Entlastung und Zeitersparnis Automatisiert werden.
-
-Es gibt eine Vielzahl von Analysetechniken, die zur Bewertung der Leistung einer Anwendung eingesetzt werden können. Zu diesen Techniken gehören Regressionsanalyse, Maschinelles Lernen und Data Mining.
+Es gibt eine Vielzahl von Analysetechniken die zur Extraktion von Informationen aus Daten eingesetzt werden können. Zu diesen Techniken gehören Regressionsanalyse, Maschinelles Lernen und Data Mining. 
 
 ### Regressionsanalyse 
 
@@ -74,7 +86,7 @@ Beim überwachtem Lernen wird anhand von klassifizierten Daten ein Modell traini
 
 ### Data Mining
 
-Data Mining (auch als Knowledge Discovery in Databases (KDD) bezeichnet) ist ein Prozess, um Muster und Strukturen aus relativ komplex Strukturierten Datenbeständen zu extrahieren.[@data] Es gibt verschiedene Modelle um Data Mining Prozesse zu entwickeln.[@data] Ein branchenübergreifende Prozess dafür ist CRISP-DM (CRoss-Industry Standard Process for Data Mining) siehe Abbildung \ref{crisp}.
+Data Mining (auch als engl. knowledge discovery in databases (KDD) bezeichnet)[@maschArt] ist ein Prozess, um Muster und Strukturen aus Strukturierten Datenbeständen zu extrahieren.[@data] Es gibt verschiedene Modelle um Data Mining Prozesse zu entwickeln.[@data] Ein branchenübergreifende Prozess dafür ist CRISP-DM (CRoss-Industry Standard Process for Data Mining) siehe Abbildung \ref{crisp}.
 
 \begin{figure}
 \centering
@@ -83,18 +95,14 @@ Data Mining (auch als Knowledge Discovery in Databases (KDD) bezeichnet) ist ein
 \label{crisp}
 \end{figure} 
 
-Aus der Abbildung \ref{crisp} wird deutlich das es sich nicht um einen Linearen Prozess handelt. Der Prozess unterteilt sich in Sechs Phasen. Die erste Phase das "Business Understanding" konzentriert sich auf die Präzisierung der betriebs-wirtschaftlichen Problemstellung. Diese bildet die Grundlage für das weiterverfahren im Data Mining Prozess. Eine Auswahl an Relevante Daten, ist nach der Formulierung der Ziele zu treffen. Die Phase lässt sich dabei in Vier Schritte zussamenfassen. Daten sammeln, Daten beschreiben, Untersuchung der Daten und Bewertung der Daten. Die dritte Phase "Daten Preperation" umfasst die notwendige Schritte zur Vorbereitung der Datenmenge zur Analyse in der Modellierung. Hierbei werden die Daten unter anderem Bereinigt und Transformiert. Es können mehrere Modellierungstechniken für eine Problemstellung zum Einsatz kommen. Diese stellen können besondere Anforderungen an die Datenstruktur stelle. Das hat zur Folge das zurück in die dritte Phase übergegangen wird. Die Fünfte Phase "Evaluation" befasst sich mit der Bewertung des Modells. Dabei wird überprüft ob die Zielsetzung mit dem Entwickelten Modell realisiert und Qualitativ abgesichert wird. Lassen sich die Anforderungen nicht erfüllen, wird der Prozess erneut durchlaufen. Die "Deployment" Phase bildet den Abschluss und präsentiert in angemessener Form die Ergebnisse dem Benutzer. Abbildung \ref{crisp} zeigt das Beschriebene Konzept im Überblick. 
+Aus der Abbildung \ref{crisp} wird deutlich das es sich nicht um einen Linearen Prozess handelt. Der Prozess unterteilt sich in Sechs Phasen. Die erste Phase das "Business Understanding" konzentriert sich auf die Präzisierung der Problemstellung. Diese bildet die Grundlage für das weiterverfahren im Data Mining Prozess. Eine Auswahl an Relevante Daten, ist nach der Formulierung der Ziele zu treffen. Die Phase lässt sich dabei in Vier Schritte zusammenfassen. Daten sammeln, Daten beschreiben, Untersuchung der Daten und Bewertung der Daten. Die dritte Phase "Daten Preperation" umfasst die notwendige Schritte zur Vorbereitung der Datenmenge zur Analyse in der Modellierung. Hierbei werden die Daten unter anderem Bereinigt und Transformiert. Es können mehrere Modellierungstechniken für eine Problemstellung passen. Die Modellierungstechniken können dabei besondere Anforderungen an die Datenstruktur stellen. Das kann zur Folge haben das zurück in die dritte Phase übergegangen wird um die Daten auf die neuen Anforderungen anzupassen. Die Fünfte Phase "Evaluation" befasst sich mit der Bewertung des Modells. Dabei wird überprüft ob die Zielsetzung mit dem Entwickelten Modell realisiert und Qualitativ abgesichert wird. Lassen sich die Anforderungen nicht erfüllen, wird der Prozess erneut durchlaufen. Die "Deployment" Phase bildet den Abschluss nach erfolgreichem Durchlauf der anderen Phasen und präsentiert in angemessener Form die Ergebnisse dem Benutzer. Abbildung \ref{crisp} zeigt das Beschriebene Konzept im Überblick. 
 
 Es gibt verschiedene Methoden für das Data Mining dazu gehören Clusteranalysen, Bayes-Statistik sowie Maschinelles Lernen.[@data] 
-Die Clusteranalyse versucht, aufgrund der zwischen den Objekten vorhandenen Proximität eine gegebene Anzahl von Objekten in Gruppen aufzuteilen oder zu Gruppen zusammenzufassen, wobei sowohl eine herkömmliche als auch eine konzeptuelle Clustermethode angewendet werden kann.[@data] 
+Die Clusteranalyse versucht, aufgrund der zwischen den Objekten vorhandenen Proximität eine gegebene Anzahl von Objekten in Gruppen aufzuteilen oder zu Gruppen zusammenzufassen, wobei sowohl eine herkömmliche als auch eine konzeptuelle Clustermethode angewendet werden kann.[@data] Die Cluster werden so konzipiert, dass die Ähnlichkeit der Objekte innerhalb einer Klasse maximiert und die Ähnlichkeit zwischen Objekten verschiedener Klassen minimiert wird.[@data] Das Bayes-Verfahren beruht auf dem bekannten Theorem von Bayes über bedingte Wahrscheinlichkeiten, welches versucht, die Klassifikation so vorzunehmen, dass die bedingte Wahrscheinlichkeit für die Übereinstimmung der Klassenbildung mit der tatsächlichen Datenstruktur anhand der vorliegenden Daten maximiert wird. [@data] Mithilfe von Maschinellem lernen wird ein Modell Trainiert das ein Objekt aufgrund seiner Attribute in eine vorhandene Klasse einteilt. Techniken dazu wurden im Abschnitt [2.3.2 Maschinelles Lernen](#maschinelles-lernen) behandelt.
 
-Hier kommt noch Bayes Statistik und Verweis auf Maschinelles Lernen.
+Voraussetzung für ein Aussagekräftiges Ergebnis beim Data Mining ist die Qualität der Daten. Fehlerhafte oder unvollständige Daten wirken sich negativ auf das Ergebnis aus. Der Schutz der Daten vor Missbrauch und Diebstahl sowie die einhaltung der geltenden Datenschutzverordnung bei der Verarbeitung sind beim Data Mining zu beachten und eine Herausforderung. 
 
-
-Für ein Aussagekräftiges Data Mining ergebnis ist die Qualität der Daten eine Voraussetzung. Fehlerhafte oder unvollständige Daten wirken sich negativ auf das Ergebnis aus. Der Schutz der Daten vor Missbrauch und Diebstahl sowie die einhaltung der geltenden Datenschutzverordnung bei der Verarbeitung sind beim Data Mining zu beachten. 
-
-Text Mining ist eine Spezialisierung von Data Mining wenn es sich bei den behandelten Daten um einen Text handelt. Es gibt einige Daten Spezifische Besonderheiten bei der Bearbeitung von Texten im gegensatz zu normalen Daten wie Datenbankdaten. Eine reihe von Spezifischen Methoden und Ansätzen
- Es 
+Text Mining ist ein Teilgebiet von Data Mining. Dabei werden keine Strukturierten Daten sondern unstrukturierte Texte verarbeitet.<!-- Text Mining ist eine Erweiterung von Data Mining wenn es sich bei den behandelten Daten um einen Text handelt.--> Bei der Verarbeitung von Text gibt es einige Besonderheiten im Vergleich zu Strukturierten Daten. Text Mining hat dazu eine Reihe von spezifischen Methoden und Ansätze.[@textMin] Die Methoden setzten sich dabei aus Kombinationen Verwandter Verfahren, Bereiche wie Data Mining, Maschinellem Lernen und natural language processing, zusammen. [@textMin] Das Text Mining wird verwendet zur Extraktion, nicht Triviale Muster oder Inhalte aus unstrukturierten oder Teilweise Strukturieren Texten. Der Prozess für das Text Mining ist ähnlich wie beim Data Mining. Sie unterscheiden sich in in den Verfahren die im Prozess verwendet werden. 
 
  <!--
  mithilfe der Logs das gemeldete Problem. Falls ein Problem nachgewiesen wird durch den Entwickler behandelt er dieses. 

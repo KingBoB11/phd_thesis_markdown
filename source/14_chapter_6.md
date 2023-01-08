@@ -1,3 +1,4 @@
+<!--
 # Umsetzung
 
 ## Implementierung der Datenverarbeitung 
@@ -6,13 +7,16 @@ Das Grokk Pattern x Strukturiert unsere Logs und erstellt dafür Felder
 Die Datenverarbeitung besteht aus Drei Schritten: Konvertierung der Datei, Indexieren der Daten und Anwendung der Runtimefields. Die Konvertierung bearbeitet die Datei und bereitet sie für die Indexierung vor, die Indexierung 
 
 Vor der Indexierung werden die Daten mit einem Grok pattern auf ein definiertes Mapping gemappt und verarbeitet. 
-Bei der Indexierung bestimmt ein Mapping wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Die Daten werden mit ein Grok Pattern Gemappt und Indexiert. <!-- Zur Indexierung werden die Daten über eine Grokpattern ausgewertet und über ein Mapping den Feldern zugewiesen ein def  Das Mapping bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. --> Die Runtimefields extrahieren aus den Feldern die gewünschten Werte. 
+Bei der Indexierung bestimmt ein Mapping wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Die Daten werden mit ein Grok Pattern Gemappt und Indexiert. <!-- Zur Indexierung werden die Daten über eine Grokpattern ausgewertet und über ein Mapping den Feldern zugewiesen ein def  Das Mapping bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. --
+
+Die Runtimefields extrahieren aus den Feldern die gewünschten Werte. 
 
 ```{caption="Mapping Vorlage der Daten" label=map .numberLines}
   "properties": {
     "@timestamp": { "type": "date" },
     "log.level": { "type": "keyword" },
-    "message": { "type": "wildcard" }
+    "message": { "type": "wildcard" },
+    "class": { "type": "text" }
 ```
 
 In der Auflistung \ref{map} Zeile 1 wird mit dem Mapping Parameter "properties"  begonnen unsere Felder zu definieren. Anschließend wird in Zeile 2 das Feld "@timestamp" mit dem Felddatentyp "date" erstellt. 
@@ -51,7 +55,7 @@ Das ist der zweite Teil der Methodik. Sed ut ipsum ultrices, interdum ipsum vel,
 
 <!--
 Kommentare können so hinzugefügt werden.
--->
+
 
 ## Ergebnisse
 
@@ -64,3 +68,4 @@ Das ist die Auseinandersetzung mit den Ergebnissen. Curabitur gravida nisl id gr
 ## Schlussfolgerung
 
 Das ist die Schlussfolgerung des Kapitels. Nulla sed condimentum lectus. Duis sed tempor erat, at cursus lacus. Nam vitae tempus arcu, id vestibulum sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+-->

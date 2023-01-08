@@ -1,5 +1,6 @@
+<!-- 
 # Konzept der Anwendung
-<!--  -->
+<!--  
 ## Datenerfassung
 
 \begin{figure}
@@ -8,12 +9,14 @@
 \caption{Beispieldatensatz der Abspeicherung von Geräte Logs auf dem FTP-Server
 \label{Beispieldatensatz}}
 \end{figure}
-Bisher loggt die Anwendung, die benötigte Zeit zum Abschließen von Performance Relevanten Prozessen. Dazu wird beim Aufruf eines Prozesses eine Stoppuhr gestartet, welche mit Beendigung des Prozesses die verstrichene Zeit als Log Dokumentiert. Intern ist festgelegt, dass am ende des Tages und im Falle eines Geräte oder Anwendung Absturzes die Logs des Gerätes automatisch auf den Internen FTP-Server der Brunata geladen werden.
+Bisher loggt die Anwendung, die benötigte Zeit zum Abschließen von Performance Relevanten Prozessen. Dazu wird beim Aufruf eines Prozesses eine Stoppuhr gestartet, welche mit Beendigung des Prozesses die verstrichene Zeit im Log Dokumentiert. Intern ist festgelegt, dass am ende des Tages und im Falle eines Geräte oder Anwendung Absturzes die Logs des Gerätes automatisch auf den Internen FTP-Server der Brunata geladen werden.
 Jeder eingegangen Satz an Log Daten wird unter dem Gerätenamen, sowie die Logs untergeordnet unter dem Anwendungsnamen, abgespeichert. Ein Beispiel ist in Abbildung \ref{Beispieldatensatz} zu sehen. Im Rahmen dieser Arbeit werden nur Logs der Anwendung GEMO betrachtet. 
 
 ## Datenverarbeitung 
 
-Für die Verarbeitung der Logdaten wird Elasticsearch benutzt[@el2].<!-- > Es baut auf der Apache Lucene-Bibliothek auf und ermöglicht durch die Verwendung von Runtimefields und Scripting, Felder und Ausdrücke zur Laufzeit ohne erneute Indexierung zu Extrahieren[@el1]. Die Extraktion ohne erneute Indexierung Spart Speicher und erhöht die Verarbeitungsgeschwindigkeit[@el].--> Die Verarbeitung besteht dabei aus Drei Schritten: Strukturierung der Datei, Indexierung und Anwendung der Runtimefields. Zur Strukturierung wird ein Grokpattern verwendet und mit einem Mapping wird bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Mithilfe von Scripts und Grokpattern in Runtimefields werden der Prozessname und die benötigte Zeit aus unseren Strukturierten und Indexierten Feldern extrahiert.
+Für die Verarbeitung der Logdaten wird Elasticsearch benutzt[@el2].<!-- > Es baut auf der Apache Lucene-Bibliothek auf und ermöglicht durch die Verwendung von Runtimefields und Scripting, Felder und Ausdrücke zur Laufzeit ohne erneute Indexierung zu Extrahieren[@el1]. Die Extraktion ohne erneute Indexierung Spart Speicher und erhöht die Verarbeitungsgeschwindigkeit[@el].--
+
+ Die Verarbeitung besteht dabei aus Drei Schritten: Strukturierung der Datei, Indexierung und Anwendung der Runtimefields. Zur Strukturierung wird ein Grokpattern verwendet und mit einem Mapping wird bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Mithilfe von Scripts und Grokpattern in Runtimefields werden der Prozessname und die benötigte Zeit aus unseren Strukturierten und Indexierten Feldern extrahiert.
 
 ## Visualisierung der Daten
 
@@ -21,6 +24,8 @@ Für die Graphische Darstellung der Daten wird Kibana verwendet. Dazu wird ein D
  Kibana Zur Visualisierung wird in Kibana ein Data View erstellt welches auf unsere Indexierten Daten basiert. Zur Graphischen Darstellung wird 
 Kibana ist eine Open-Source-Visualisierungs- und Analyseplattform, die auf Elasticsearch aufbaut und von der Firma Elastic entwickelt wird. Kibana ermöglicht es die über Elasticsearch verarbeiteten Daten auf vielfältige weise zu Visualisieren. 
  Kibana greift dazu in "Data Views" auf einen oder mehrere Elasticsearch Daten ströme, Indices oder benannten index zu. Eine Data View stellt dafür Dashboards zur Verfügung in welchen man die Daten seinen Wünschen entsprechend Graphisch darstellen kann. Die Ausgewerteten Daten werden in einem Dashboard in Form eines Graphen Visualisiert.
+
+-->
 <!--
 ## Datenextraktion 
 

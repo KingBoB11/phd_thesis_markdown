@@ -61,6 +61,25 @@
 % http://texblog.org/2012/11/07/correctly-typesetting-paragraphs-in-latex/
 \setlength{\parskip}{9pt}
 
+%Inlinecode 
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    numberstyle=\footnotesize,
+    stepnumber=2,
+    numbersep=5pt,
+    backgroundcolor=\color{black!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    linewidth=\textwidth
+}
 
 % Tables
 \usepackage{booktabs}

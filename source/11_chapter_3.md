@@ -1,13 +1,44 @@
 # Stand der Technik
 
 <!--Um die Leistung einer Anwendung zu Evaluieren 
-Leistungsdaten aus Logdaten zu extrahieren und zu verarbeiten ist eine bekannte Herausforderung beim Text Mining.-->Performance Relevante Daten zu Erheben und verarbeiten ist eine bekannte Herausforderung bei der Performance Evaluation. Es gibt viele Lösungsansätze zu den Verschiedenen Verfahren. Sie unterscheiden sich im aufwand der Vorverarbeitung als auch in der Weiterverarbeitung der Daten. Die Schwierigkeit dabei ist es, die Leistung genau zu messen, da es eine Vielzahl von Geräten, Netzwerken und Betriebssystemen gibt, die verwendet werden.
+Leistungsdaten aus Logdaten zu extrahieren und zu verarbeiten ist eine bekannte Herausforderung beim Text Mining.-->Performance relevante Daten zu erheben und verarbeiten ist eine bekannte Herausforderung bei der Performance Evaluation. Es gibt viele Lösungsansätze zu den verschiedenen Verfahren. Sie unterscheiden sich im Aufwand der Vorverarbeitung als auch in der Weiterverarbeitung der Daten. Die Schwierigkeit dabei ist es, die Leistung genau zu messen, da es eine Vielzahl von Geräten, Netzwerken und Betriebssystemen gibt, die verwendet werden.
 
-Es hat sich in den Letzten Jahren durchgesetzt, mittels Text Mining Leistungsdaten aus Logs zu extrahieren und Graphisch aufzuarbeiten. Die Entwicklung einer solchen Auswertung und Analyse bei beispielweise Datadog[@dataDog],  Dynatrace[@dynatrace] und New Relic[@newRelic] hat zu einem Paradigmenwechsel in der Performance Evaluation geführt, sodass die Performance Evaluation für eine vielzahl von Geräte ohne großen Aufwand möglich ist. 
+Es hat sich in den letzten Jahren durchgesetzt, mittels Text Mining Leistungsdaten aus Logs zu extrahieren und grafisch aufzuarbeiten. Die Entwicklung einer solchen Auswertung und Analyse bei beispielweise Datadog[@dataDog],  Dynatrace[@dynatrace] und New Relic[@newRelic] hat zu einem Paradigmenwechsel in der Performance Evaluation geführt, sodass die Performance Evaluation für eine Vielzahl von Anwendungen ohne großen Aufwand möglich ist.
+
+Bei Softwarelösungen der führenden Unternehmen wie Datadog ist es notwendig, zur vollumfänglichen Nutzung Daten außerhalb des Unternehmens zu verarbeiten.^[vgl. Magic Quadrant im Gartner Report [@gartner] und Dokumentation Datadog [@dataDog]]. Die Unternehmensphilosophie, das Daten nur im Unternehmen verarbeitet werden und die in [Data Mining](#Data-Mining) beschriebene Problematik in der datenschutzkonformen Datenverarbeitung führen dazu, das keine Softwarelösungen mit externer Datenverarbeitung infrage kommen. Daher wird zur Implementierung des Text Mining Prozesses die Open-Source Such- und Analysesoftware Elasticsearch in Kombination mit der Open-Source-Analyse- und Visualisierungsplattform Kibana verwendet. Ziel der Implementierung ist es die benötigte Zeit von Prozessen und Anfragen aus den Logdaten zu Extrahieren und sie in form von Graphen darzustellen. Dadurch soll es Entwicklern ermöglicht werden bisher unerkannte Leistungsprobleme zu erkennen und beheben zu können.
+
+## Elasticsearch und Kibana
+
+Elasticsearch ist eine verteilte Such- und Analysesoftware, die im Mittelpunkt des Elastic Stacks steht. Elasticsearch bietet Such- und Analysefunktionen für verschiedene Arten von Daten. Unabhängig davon, ob es sich um strukturierte oder unstrukturierte Text-, numerische oder Geodaten handelt, kann Elasticsearch diese Daten effizient speichern und indizieren, sodass eine schnelle Suche möglich ist. Elasticsearch bietet Methoden an, die über die einfache Datenabfrage hinausgehen und Informationen aggregieren, um Trends und Muster in den Daten erkennen. Die verteilte Natur von Elasticsearch ermöglicht es, dass sich der Einsatz an das wachsende Volumen von Daten und Abfragen anpasst.[@el6]
+
+Kibana ist eine Open-Source-Analyse- und Visualisierungsplattform für die Erstellung von interaktiven Dashboards und Grafiken auf Basis von Elasticsearch zur Erforschung und Visualisierung von Daten.
+
+oder 
+
+
+Kibana ist eine Open-Source-Analyse- und Visualisierungsplattform, die es Benutzern ermöglicht, interaktive Dashboards und Grafiken zur Erforschung und Visualisierung von Daten auf Basis von Elasticsearch zu erstellen.
+
+## Verwendung
+
+Mit einem kombinierten Einsatz der Methoden und Verfahren von Elasticsearch und Kibana ist es möglich, Leistungsdaten aus Logdaten zu extrahieren und grafisch aufzuarbeiten. Dadurch können Leistungsprobleme identifiziert und behoben werden. 
+Die Abbildung \ref{elproz} veranschaulicht, welche aufgaben Elasticsearch und Kibana im Text Mining Prozess übernehmen.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/prozessel.jpeg}
+\caption{Prozessdiagramm veranschaulicht Methoden und Aufbau des Text Mining mittels Elasticsearch und Kibana}
+\label{elproz}
+\end{figure} 
+
+Elasticsearch übernimmt dabei die Vorbereitung der Daten und die Extraktion der Informationen. Kibana stellt die Visualisierung der Daten zur Verfügung. Nachdem Elasticsearch und Kibana Open-Source sind, können diese auf internen Server agieren und bereitgestellt werden.
+
+<!-->
+Elasticsearch ist eine Opensource verteilte Such- und Analysemaschine für alle Arten von Daten. Unabhängig davon, ob es sich um strukturierten oder unstrukturierten Daten handelt, elasticsearch speicher die Daten Effizient und indiziert sie. Elasticsearch bietet neben der reinen Datenabfrage Methoden an um trends und Muster in den Daten zu erkenne.
+Elasticsearch basiert auf der Apache Lucene-Bibliothek, die einen invertierten Index verwendet, um Daten zu speichern und schnell darauf zuzugreifen. Elasticsearch ist hoch skalierbar und ermöglicht schnelle und effiziente Suchabfragen.
 
 Bei der Entwicklung einer automatisierten First-Level-Support Schnittstelle, basierend auf maschinellen Lernen, hat die Firma Brunata-Metrona GmbH & Co Kg gute Erfahrungen gemacht. Dabei ging es um die automatische Text Klassifikation von Support Anfragen bei der internen Support Hotline. Aufgrund dieser zufriedenstellenden Arbeit, soll im Rahmen dieser Arbeit erforscht werden, ob die Nutzung von Logs zur Performance Evaluation auch die gewünschten Ergebnisse erreicht.
 
-Das Ziel dieser Arbeit ist es, basierend auf den Logs einer Mobilen Anwendung der Firma eine Performance Evaluation zu entwerfen und durchzuführen, die weiterentwickelt und auf weitere Anwendungen der Firma angewendet werden kann. <!--Durch die technische Errungenschaft im Bereich Volltextsuche und Auswertung, soll erforscht werden, ob diese Auswertungen auch im bereich der Gemo Logs umsetzbar sind.--> Optimal wäre es, wenn es gelingt, das auftretende Performance Probleme bei der Ablesung oder Montage durch einen Monteur mithilfe von Performance Monitoring zu erkennen.
+Das Ziel dieser Arbeit ist es, basierend auf den Logs einer Mobilen Anwendung der Firma eine Performance Evaluation zu entwerfen und durchzuführen, die weiterentwickelt und auf weitere Anwendungen der Firma angewendet werden kann. <!--Durch die technische Errungenschaft im Bereich Volltextsuche und Auswertung, soll erforscht werden, ob diese Auswertungen auch im bereich der Gemo Logs umsetzbar sind. Optimal wäre es, wenn es gelingt, das auftretende Performance Probleme bei der Ablesung oder Montage durch einen Monteur mithilfe von Performance Monitoring zu erkennen.-->
 
 <!--
 

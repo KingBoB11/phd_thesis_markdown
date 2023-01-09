@@ -9,7 +9,14 @@ Bei Softwarelösungen der führenden Unternehmen wie Datadog ist es notwendig, z
 
 ## Elasticsearch und Kibana
 
-Elasticsearch ist eine verteilte Such- und Analysesoftware, die im Mittelpunkt des Elastic Stacks steht. Elasticsearch bietet Such- und Analysefunktionen für verschiedene Arten von Daten. Unabhängig davon, ob es sich um strukturierte oder unstrukturierte Text-, numerische oder Geodaten handelt, kann Elasticsearch diese Daten effizient speichern und indizieren, sodass eine schnelle Suche möglich ist. Elasticsearch bietet Methoden an, die über die einfache Datenabfrage hinausgehen und Informationen aggregieren, um Trends und Muster in den Daten erkennen. Die verteilte Natur von Elasticsearch ermöglicht es, dass sich der Einsatz an das wachsende Volumen von Daten und Abfragen anpasst.[@el6]
+Elasticsearch ist eine verteilte Such- und Analysesoftware, die im Mittelpunkt des Elastic Stacks steht. Elasticsearch bietet Such- und Analysefunktionen für verschiedene Arten von Daten. Unabhängig davon, ob es sich um strukturierte oder unstrukturierte Text-, numerische oder Geodaten handelt, kann Elasticsearch diese Daten effizient speichern und indizieren, sodass eine schnelle Suche möglich ist. Elasticsearch bietet Methoden an, die über die einfache Datenabfrage hinausgehen und Informationen aggregieren, um Trends und Muster in den Daten erkennen. Die verteilte Natur von Elasticsearch ermöglicht es, dass sich der Einsatz an das wachsende Volumen von Daten und Abfragen anpasst.[@el6] 
+
+Beim Mapping werden die Felder der Daten, die indiziert werden sollen, definiert. Dieser Prozess ist notwendig, um sicherzustellen, dass die Suchmaschine die Daten richtig analysieren und interpretieren kann. Durch die Bereitstellung von Mapping-Informationen können Benutzer steuern, wie ihre Daten indiziert werden und wie die Suchmaschine die Daten bei einer Abfrage interpretiert. 
+
+Zur Vorbereitung und Strukturierung der Daten in die definierten Felder werden die Daten mit einem Grok Pattern welches auf den Inhalt der Daten passt extrahiert und Verarbeitet. Grok ist ein Dialekt für reguläre Ausdrücke, es verwendet die Oniguruma Bibliothek womit alle regulären Ausdrücke akzeptiert werden[@el3]. Grok erlaubt, bestehende Muster zu benennen und durch Kombination komplexere Muster zu erstellen, welche den gewollten Feldern entsprechen. 
+
+Auf den Indexierten Daten können zur Laufzeit Runtimefields erzeugt werden. Ein Runtimefield ist ein Feld das zur Laufzeit ausgewertet wird. Es dient dazu Felder ohne erneute Indexierung der Daten hinzuzufügen, den Rückgabe wert eines Feldes zu überschreiben oder ein Feld für einen bestimmten Zweck zu definieren ohne das zugrunde liegende Schema zu verändern[@el1]. 
+
 
 Kibana ist eine Open-Source-Analyse- und Visualisierungsplattform für die Erstellung von interaktiven Dashboards und Grafiken auf Basis von Elasticsearch zur Erforschung und Visualisierung von Daten.
 

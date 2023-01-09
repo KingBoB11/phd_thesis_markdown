@@ -22,18 +22,26 @@ Bild homescreen und funktionen der APP
 \label{aufbau}
 \end{figure}
 Abbildung \ref{aufbau} veranschaulicht die Anwendungen und den Aufbau. --> 
-Die Brunata nutzt zur Bündelung der Arbeitsschritte der Mess- und Montagepartner eigens entwickelte Apps. Die Anwendung Gemo bündelt die Funktionen der Anwendungen und ist die Schnittstelle für Mess- und Montage Partner.
+Die Brunata nutzt zur Steuerung und Unterstützung der Arbeitsschritte der Mess- und Montagepartner eigens entwickelte Mobile Anwendungen. Die Mobile Anwendung Gemo bündelt dabei die Funktionen der anderen Anwendungen und ist die Schnittstelle für Mess- und Montage Partner. Der Aufbau und Zusammenhang der Anwendungen wird in Abbildung \ref{anw} Veranschaulicht.
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/aufbau.png}
+\caption{Vereinfachte Darstellung des zusammenhangs der Mobilen Anwendungen der Brunata}
+\label{anw}
+\end{figure}
+Die Mobile Anwendung Gemo stellt unter anderem die Funktionen zur Verfügung Termine für die Ablesung von Zählerwerten sowie der Montage von Geräten zu erstellen. Des Weiteren leitet und kontrolliert die Anwendung den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können. Der Aufbau und die Funktionen der Anwendung sind in Abbildung \ref{gemo} zu sehen.
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/gemo.jpeg}
 \caption{Screenshot aus der Anwendung Gemo}
 \label{gemo}
 \end{figure}
-Wie Abbildung \ref{gemo} veranschaulicht, ist es möglich, über die App Termine für die Ablesung von Zählerwerten sowie der Montage von Geräten zu erstellen. Des Weiteren leitet und kontrolliert die App den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können. Die gesammelten Daten werden über die Sync-App Synchronisieren und ins SAP-System geladen. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual private Network ist ein geschlossenes Netzwerk, welches zum Transport privater Daten ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Bei der Synchronisation von Daten über einen mobilen Client werden diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Plattform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile) verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser für die Anbindung an das ERP System (Backend) decodiert. Mithilfe von RFC^[Remote Function Call: SAP-Schnittstelle ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und strukturiert die Daten. Die unten stehende Abbildung veranschaulicht die drei Komponenten und ihre Interaktion miteinander.
+Die gesammelten Daten werden über die Sync-App Synchronisieren und ins SAP-System geladen. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual private Network ist ein geschlossenes Netzwerk, welches zum Transport privater Daten ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Wie in Abbildung 2.3 dargestellt, wird bei der Synchronisation von Daten über einen mobilen Client diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Plattform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile) verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser für die Anbindung an das ERP System (Backend) decodiert. Mithilfe von RFC^[Remote Function Call: SAP-Schnittstelle ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und strukturiert die Daten. 
 
 ![Architekturkomponenten bei Brunata](Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png "Architekturkomponenten bei Brunata")
 
 <!--
+
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png}
@@ -50,26 +58,29 @@ Die Performance Evaluation Mobiler Anwendungen ist der Prozess zur Bewertung der
 -->
 ## Aktueller Stand 
 
-Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die hochgeladenen Logdaten des Geräts nach dem Problem. Dabei dient die benötigte Zeit von Prozessen und Anfragen, die geloggt wird als Anhaltspunkt für Leistungsprobleme. Die Logdateien umfassen ca 5000 Zeilen und sind nach dem Schema: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert, wie der Log ausschnitt in Abbildung \ref{logs} veranschaulicht.
+Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die hochgeladenen Logdaten des Geräts nach dem Problem. Dabei dient die benötigte Zeit von Prozessen und Anfragen, die geloggt wird als Anhaltspunkt für Leistungsprobleme. Die Logdateien umfassen ca. 5000 Zeilen und sind wie Abbildung \ref{logs} darstellt, nach dem Schema:  
+[Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert.
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{source/figures/logs.PNG}
+\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/logs.PNG}
 \caption{Ausschnitt aus einer Logdatei}
 \label{logs}
 \end{figure}
-Die Ereignisbeschreibung für benötigte Zeit von Prozessen und Anfragen ist dabei nach dem Schema: [Prozessname oder Anfrage] ["took"] [benötigte Zeit in ms] aufgebaut.
+Die Ereignisbeschreibung für die benötigte Zeit von Prozessen und Anfragen ist dabei nach dem Schema:  
+[Prozessname oder Anfrage] ["took"] [benötigte Zeit in ms] aufgebaut.
 
-Durch die Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und Behandlung von Leistungsproblemen Zeitaufwändig. Die Untersuchung der Leistungsdaten sollte daher vereinfacht werden, indem die Leistungsdaten automatisiert aus den Logdaten Extrahiert und aufbereitet werden. 
+Durch die Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und Behandlung von Leistungsproblemen zeitaufwändig. Daher sollte die Untersuchung der Leistungsdaten vereinfacht werden. Dies kann durch die automatisierte Extraktion und Aufbereitung der Leistungsdaten aus den Logdaten realisiert werden.
 <!--
 Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Die benötigte Zeit von Prozessen wird geloggt und dient als Anhaltspunkt für Leistungsprobleme. Die durch einen Entwickler zu untersuchenden Logs umfassen ca 5000 Zeilen oder mehr. -->
 
 ## Analyse der Daten 
 
-Es gibt eine Vielzahl von Analysetechniken, die zur Extraktion von Informationen aus Daten eingesetzt werden können. Zu diesen Techniken gehören Regressionsanalyse, maschinelles Lernen, Data Mining und Text Mining.
-
+Es gibt eine Vielzahl von Analysetechniken, die zur Extraktion von Informationen aus Daten eingesetzt werden können. Zu diesen Techniken gehören maschinelles Lernen, Data Mining und Text Mining.
+<!--
 ### Regressionsanalyse 
 
 Die Regressionsanalyse ist ein statistisches Verfahren, mit dem Beziehungen zwischen Variablen ermittelt werden kann.[@reg] Die Regressionsanalyse beginnt mit der Festlegung einer abhängigen Variablen, die das Ergebnis oder das Ausgangsergebnis darstellt, das untersucht werden soll. Danach werden eine oder mehrere unabhängige Variablen identifiziert, die Einfluss auf das Ergebnis haben. Die abhängige Variable ist der Faktor, der durch die unabhängigen Variablen beeinflusst wird. 
+-->
 
 ### Maschinelles Lernen
 
@@ -87,7 +98,7 @@ Beim überwachtem Lernen wird anhand von klassifizierten Daten ein Modell traini
 
 Maschinelles Lernen kommt in unterschiedlichen Anwendungen zum Einsatz, in welchen Erkenntnisse aus Daten genutzt werden zur Lösung Praktischer Probleme.[@maschArt] So kann maschinelles Lernen dazu verwendet werden ein Modell zu Trainieren um Muster und Informationen aus Daten zur extrahieren und diese zu Bewerten. Allerdings ist die Modellerstellung aufwendig und die Güte des Modells hängt von der Qualität und Quantität der verfügbaren Daten ab.[@maschArt] 
 
-### Data Mining
+### Data Mining und Text Mining
 
 Data Mining (auch als engl. knowledge discovery in databases (KDD) bezeichnet)[@maschArt] ist ein Prozess, um Muster und Strukturen aus strukturierten Datenbeständen zu extrahieren.[@data] Es gibt verschiedene Methoden für das Data Mining, dazu gehören Clusteranalysen, Bayes-Statistik sowie maschinelles Lernen.[@data] 
 
@@ -101,7 +112,7 @@ Voraussetzung für ein aussagekräftiges Ergebnis bei Data und Text Mining ist d
 
 Der Aufwand und die Komplexität ein Modell auf grundlage von Maschinellem lernen zu Trainieren ist im Vergleich zu den Alternativen groß. Obwohl das Verfahren maschinellem Lernen in der Lage wäre Informationen aus den Logdaten zu Extrahieren und diese sogar automatisiert zu Bewerten wird in Hinblick auf den Aufwand, der Komplexität und der Unsicheren Qualität des Ergebnisess maschinelles Lernen nicht zur Lösung der Problemstellung verwendet. Allerdings könnte die Verwendung dieses Verfahren in einer weiterführenden Arbeit untersucht werden. Aufgrund der Anforderung das Informationen, aus Logdaten welche in Text Form vorliegen, Extrahiert werden sollen und Text Mining genau dazu verwendet wird, kommt im weiteren Verlauf der Arbeit Text Mining zum Einsatz.
 
-##  CRISP-DM: Ein Prozessmodell für Analyseprojekte
+##  CRISP-DM: Prozessmodell für Analyseprojekte
 
 Ein standardisiertes und strukturiertes Vorgehen ermöglicht es, den Einstieg in die Durchführung von Analyseprojekten zu erleichtern und diese zu beschleunigen, die Planung und Verwaltung der erforderlichen Aktivitäten zu vereinfachen und die Validität und Verlässlichkeit der Ergebnisse zu erhöhen. Darüber hinaus fördert ein solches Prozessmodell die Wiederholbarkeit und Nachvollziehbarkeit aller ausgeführten Verarbeitungsschritte und Entscheidungen, was die Dokumentation und Wiederverwendung von Erfahrungen erleichtert. Schließlich hilft ein gemeinsames Verständnis über den allgemeinen Ablauf einer Datenanalyse bei der Kommunikation zwischen allen Beteiligten. Der Cross Industry Standard Process for Data Mining (CRISP-DM) ist ein sehr weit verbreitetes und ausgereiftes Prozessmodell, das ein Analyseprojekt hierarchisch auf vier Abstraktionsebenen herunterbricht. Auf der obersten Ebene wird der Analyseprozess, wie in Abbildung \ref{crisp} dargestellt, in sechs Phasen unterteilt und abgedeckt.[@maschArt2]
 <!-- Es gibt verschiedene Modelle, um Data Mining bzw. Text Mining Prozesse zu entwickeln.[@data] Ein branchenübergreifende Prozess dafür ist CRISP-DM (CRoss-Industry Standard Process for Data Mining) siehe Abbildung \ref{crisp}.-->
@@ -133,7 +144,7 @@ In der Modellierungsphase werden, geeignete Methoden für die jeweilige Analysea
 
 ### Evaluation
 
-Es wird allgemein angenommen, dass sich auch in rein zufällig erzeugten Datenbeständen durch intensive Suche Muster identifizieren lassen, die statistisch signifikant sind. Die Evaluierung dieser Muster hinsichtlich ihrer Anwendbarkeit und Relevanz für ein Unternehmen ist jedoch unerlässlich, bevor sie zur Lösung einer fachlichen Fragestellung kommuniziert und anwendet werden. Der Zweck der Evaluierung ist es, den Nutzen der Analyseergebnisse im Kontext der Anwendung zu überprüfen und letztlich die Methode auszuwählen, die die Anforderungen unter Berücksichtigung der Erfolgskriterien am besten erfüllt. Dazu ist es notwendig, dass die Ziele und Erfolgskriterien, die in der Phase des Business Understandings definiert wurden, berücksichtigt werden. Darüber hinaus sollte in dieser Phase der gesamte bisherige Analyseprozess einer Prüfung unterzogen werden. Die Evaluierungsmethoden und -kriterien hängen stark von der spezifischen Analyseaufgabe ab.
+Es wird allgemein angenommen, dass sich auch in rein zufällig erzeugten Datenbeständen durch intensive Suche Muster identifizieren lassen, die statistisch signifikant sind.[@maschArt2] Die Evaluierung dieser Muster hinsichtlich ihrer Anwendbarkeit und Relevanz für ein Unternehmen ist jedoch unerlässlich, bevor sie zur Lösung einer fachlichen Fragestellung kommuniziert und anwendet werden. Der Zweck der Evaluierung ist es, den Nutzen der Analyseergebnisse im Kontext der Anwendung zu überprüfen und letztlich die Methode auszuwählen, die die Anforderungen unter Berücksichtigung der Erfolgskriterien am besten erfüllt. Dazu ist es notwendig, dass die Ziele und Erfolgskriterien, die in der Phase des Business Understandings definiert wurden, berücksichtigt werden. Darüber hinaus sollte in dieser Phase der gesamte bisherige Analyseprozess einer Prüfung unterzogen werden. Die Evaluierungsmethoden und -kriterien hängen stark von der spezifischen Analyseaufgabe ab.
 
 ### Deployment
 
@@ -146,8 +157,8 @@ Text Mining ist ein Teilgebiet von Data Mining. Dabei werden keine Strukturierte
 Über die in Abbildung \ref{logs} zu sehenden Knopf "Logdatein senden" werden die Logdaten des Gerätes auf den Internen FTP-Server der Brunata hochgeladen.
 
 
-Abbildung \ref{logs} zeigt das Schemah für den aufbau der logs auf.
-Die Logs sind dabei nach folgendem Schemah aufgebaut: Zeitstempel im ISO8601 Format des Aufrufs, Klasse oder Prozess des Aufrufs, Loglevel und beschreibung des Ereignis. Ein BeispieIn der Abbildung \ref{logs} ist ein Ausschnitt aus einer Logdatei und das Schemah der logs zu sehen. Ein Log beginnt mit dem 
+Abbildung \ref{logs} zeigt das Schema für den aufbau der logs auf.
+Die Logs sind dabei nach folgendem Schema aufgebaut: Zeitstempel im ISO8601 Format des Aufrufs, Klasse oder Prozess des Aufrufs, Loglevel und Beschreibung des Ereignis. Ein Beispiel In der Abbildung \ref{logs} ist ein Ausschnitt aus einer Logdatei und das Schema der logs zu sehen. Ein Log beginnt mit dem 
 
  Tritt bei der Verwendung einer Mobilen Anwendung der Brunata ein Performanzproblem auf kann der Monteur das Problem Melden. Dabei werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata hochgeladen. Ein Entwickler untersucht über die gesendete Logdatei das gemeldete Problem.
 
@@ -159,7 +170,7 @@ Die Logs sind dabei nach folgendem Schemah aufgebaut: Zeitstempel im ISO8601 For
 \end{figure}
 Abbildung \ref{logs} 
  und über die Anwendung die Logs und Datenbank seines Gerätes auf den Internen FTP-Server der Brunata Hochladen. 
-kann der Monteuer nach Abschluss der Arbeit das Problem Melden und die Logs und Datenbank seines Geräts auf den internen FTP-Server der Brunata Hochladen
+kann der Monteur nach Abschluss der Arbeit das Problem Melden und die Logs und Datenbank seines Geräts auf den internen FTP-Server der Brunata Hochladen
 
  Gehe darauf ein wie aktuell probleme behandelt wewrden hochladen der Logs und Datanbak in FTP und dann bearbeitung durch einen ENtwickler der das ganze nochmal überprüft und Gggf behandelt 
 Aufbau der Logs mit beispiel eines Logs 

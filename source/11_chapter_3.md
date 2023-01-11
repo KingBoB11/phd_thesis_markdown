@@ -46,17 +46,14 @@ Die Abbildung \ref{elproz} veranschaulicht, welche aufgaben Elasticsearch und Ki
 \end{figure} 
 
 Elasticsearch übernimmt dabei die Vorbereitung der Daten und die Extraktion der Informationen. Kibana stellt die Visualisierung der Daten zur Verfügung. Nachdem Elasticsearch und Kibana Open-Source sind, können diese auf internen Server agieren und bereitgestellt werden.
--->
 
-<!-->
 Elasticsearch ist eine Opensource verteilte Such- und Analysemaschine für alle Arten von Daten. Unabhängig davon, ob es sich um strukturierten oder unstrukturierten Daten handelt, elasticsearch speicher die Daten Effizient und indiziert sie. Elasticsearch bietet neben der reinen Datenabfrage Methoden an um trends und Muster in den Daten zu erkenne.
 Elasticsearch basiert auf der Apache Lucene-Bibliothek, die einen invertierten Index verwendet, um Daten zu speichern und schnell darauf zuzugreifen. Elasticsearch ist hoch skalierbar und ermöglicht schnelle und effiziente Suchabfragen.
 
 Bei der Entwicklung einer automatisierten First-Level-Support Schnittstelle, basierend auf maschinellen Lernen, hat die Firma Brunata-Metrona GmbH & Co Kg gute Erfahrungen gemacht. Dabei ging es um die automatische Text Klassifikation von Support Anfragen bei der internen Support Hotline. Aufgrund dieser zufriedenstellenden Arbeit, soll im Rahmen dieser Arbeit erforscht werden, ob die Nutzung von Logs zur Performance Evaluation auch die gewünschten Ergebnisse erreicht.
 
-Das Ziel dieser Arbeit ist es, basierend auf den Logs einer Mobilen Anwendung der Firma eine Performance Evaluation zu entwerfen und durchzuführen, die weiterentwickelt und auf weitere Anwendungen der Firma angewendet werden kann. <!--Durch die technische Errungenschaft im Bereich Volltextsuche und Auswertung, soll erforscht werden, ob diese Auswertungen auch im bereich der Gemo Logs umsetzbar sind. Optimal wäre es, wenn es gelingt, das auftretende Performance Probleme bei der Ablesung oder Montage durch einen Monteur mithilfe von Performance Monitoring zu erkennen.-->
+Das Ziel dieser Arbeit ist es, basierend auf den Logs einer Mobilen Anwendung der Firma eine Performance Evaluation zu entwerfen und durchzuführen, die weiterentwickelt und auf weitere Anwendungen der Firma angewendet werden kann. Durch die technische Errungenschaft im Bereich Volltextsuche und Auswertung, soll erforscht werden, ob diese Auswertungen auch im bereich der Gemo Logs umsetzbar sind. Optimal wäre es, wenn es gelingt, das auftretende Performance Probleme bei der Ablesung oder Montage durch einen Monteur mithilfe von Performance Monitoring zu erkennen.
 
-<!--
 
 Hier erläutern große anbieter nehmen wir aber nicht weil Philosphie daten bleiben inhouse und probleme mit leaks. 
 
@@ -73,10 +70,10 @@ Es wurde zur Festlegung der Methodik, der Erhebung Laufzeitrelevanter Daten, ein
 
 ### Logging
 
-<!-- Hier Kommt das bereits vorhandene Verfahren der Logs rein, ich gehe darauf ein wie sie funktioniert und werte sie aus und Sage was gut und was schlecht ist.
+ Hier Kommt das bereits vorhandene Verfahren der Logs rein, ich gehe darauf ein wie sie funktioniert und werte sie aus und Sage was gut und was schlecht ist.
 Ein Ansatz ist logging zu Implementieren, welches den Start, das Ende und die benötigte Zeit von Prozessen loggt.
 Die Anwendung der Studienarbeit implementiert Logging. Logging, aus dem Englischen sinngemäß übersetzt etwas zu Dokumentieren^[Vgl. Oxford Advanced Learner´s Dictonary 2015 S.917 [@dictonary]], wird in der Informatik zur Dokumentation und verbesserten Nachvollziehbarkeit von Fehlerzuständen und Prozessabläufen verwendet. Logs werden nach einem vom Entwickler Festgelegtem Schema automatisch Generiert. Jede Zeile entspricht einem neuen Ereignis und wird mit weiteren Informationselementen versehen. Einträge erfolgen in Chronologischer Reihenfolge. Die Anwendung Loggt, die benötigte Zeit zum Abschließen von Performance Relevanten Prozessen. Dazu wird beim Aufruf eines Prozesses eine Stoppuhr gestartet, welche mit Beendigung des Prozesses die ermittelte Zeit als Log Dokumentiert (siehe Code Beispiel).
-<!-- Ein ansatzt ist mithilfe von Logging in der Anwendung, alle Prozesse und Ereignise mit Zeitstempeln zu dokumentieren. Die Log Datei enthält die zur Performance Evaluation benötigt Daten. Unter einbezug der vorhandenen
+ Ein ansatzt ist mithilfe von Logging in der Anwendung, alle Prozesse und Ereignise mit Zeitstempeln zu dokumentieren. Die Log Datei enthält die zur Performance Evaluation benötigt Daten. Unter einbezug der vorhandenen
 
 ```Java
 public void start() {
@@ -101,7 +98,7 @@ public void stop(String message) {
 ### Modul zur Laufzeiterfassung
 
 Eine weiter Herangehensweise ist die Implementierung einer Klasse welche die Erhebung und Speicherung der relevanten Daten übernimmt. Die Klasse stellt eine Schnittstelle bereit, an welcher der beginn und die beendigung eines Prozesses übergeben wird. Die Klasse ermittelt die benötigte Zeit und Speichert die gesammelten Daten. Das Format der Speicherung richtet sich nach der gewählten Methode zur Realisierung der graphischen Darstellung, welche in Kapitel X behandelt wird.
-<!--
+
 Kommentare können so hinzugefügt werden.
 
 \newpage

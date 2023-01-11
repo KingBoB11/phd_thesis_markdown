@@ -1,6 +1,10 @@
+# Bewertung der Ergebnisse
+
+Der im Rahmen der Bachelorarbeit entstandene Analyseprozess hatte das Ziel aus den Logdaten der Anwendungen die benötigte Zeit von Prozessen und Anfragen zu extrahieren und Aufzubereiten um den aktuellen Prozess der Problembehandlung von leistungsproblemen zu vereinfachen und zu verbessern. Die Implementierung mithilfe von Elasticsearch und Kibana erfüllt die vom Unternehmen gestellte Anforderung das die Datenverarbeitung ausschließlich innerhalb des Unternehmens geschieht.  
+
 <!-- 
 # Konzept der Anwendung
-<!--  
+
 ## Datenerfassung
 
 \begin{figure}
@@ -14,7 +18,7 @@ Jeder eingegangen Satz an Log Daten wird unter dem Gerätenamen, sowie die Logs 
 
 ## Datenverarbeitung 
 
-Für die Verarbeitung der Logdaten wird Elasticsearch benutzt[@el2].<!-- > Es baut auf der Apache Lucene-Bibliothek auf und ermöglicht durch die Verwendung von Runtimefields und Scripting, Felder und Ausdrücke zur Laufzeit ohne erneute Indexierung zu Extrahieren[@el1]. Die Extraktion ohne erneute Indexierung Spart Speicher und erhöht die Verarbeitungsgeschwindigkeit[@el].--
+Für die Verarbeitung der Logdaten wird Elasticsearch benutzt[@el2]. Es baut auf der Apache Lucene-Bibliothek auf und ermöglicht durch die Verwendung von Runtimefields und Scripting, Felder und Ausdrücke zur Laufzeit ohne erneute Indexierung zu Extrahieren[@el1]. Die Extraktion ohne erneute Indexierung Spart Speicher und erhöht die Verarbeitungsgeschwindigkeit[@el].--
 
  Die Verarbeitung besteht dabei aus Drei Schritten: Strukturierung der Datei, Indexierung und Anwendung der Runtimefields. Zur Strukturierung wird ein Grokpattern verwendet und mit einem Mapping wird bestimmt wie die Datei und die darin enthaltenen Felder gespeichert und Indexiert werden. Mithilfe von Scripts und Grokpattern in Runtimefields werden der Prozessname und die benötigte Zeit aus unseren Strukturierten und Indexierten Feldern extrahiert.
 
@@ -25,8 +29,7 @@ Für die Graphische Darstellung der Daten wird Kibana verwendet. Dazu wird ein D
 Kibana ist eine Open-Source-Visualisierungs- und Analyseplattform, die auf Elasticsearch aufbaut und von der Firma Elastic entwickelt wird. Kibana ermöglicht es die über Elasticsearch verarbeiteten Daten auf vielfältige weise zu Visualisieren. 
  Kibana greift dazu in "Data Views" auf einen oder mehrere Elasticsearch Daten ströme, Indices oder benannten index zu. Eine Data View stellt dafür Dashboards zur Verfügung in welchen man die Daten seinen Wünschen entsprechend Graphisch darstellen kann. Die Ausgewerteten Daten werden in einem Dashboard in Form eines Graphen Visualisiert.
 
--->
-<!--
+
 ## Datenextraktion 
 
 Für die Extraktion werden unterschiedliche Runtimefields in Kombination mit Grok Pattern verwendet. 

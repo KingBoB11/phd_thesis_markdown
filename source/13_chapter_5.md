@@ -1,6 +1,6 @@
 # Bewertung der Ergebnisse
 
-Der im Rahmen der Bachelorarbeit entstandene Analyseprozess hatte das Ziel aus den Logdaten der Anwendungen die benötigte Zeit von Prozessen und Anfragen zu extrahieren und Aufzubereiten um den aktuellen Prozess der Problembehandlung von leistungsproblemen zu vereinfachen und zu verbessern. Die Implementierung mithilfe von Elasticsearch und Kibana erfüllt die vom Unternehmen gestellte Anforderung das die Datenverarbeitung ausschließlich innerhalb des Unternehmens geschieht.  
+Der im Rahmen der Bachelorarbeit entstandene Analyseprozess hatte das Ziel aus den Logdaten der Anwendungen die benötigte Zeit von Prozessen und Anfragen zu extrahieren und Aufzubereiten. Damit sollte die aktuelle Problembehandlung von Leistungsproblemen  vereinfacht und verbessert werden. Zusätzlich sollen damit unerkannte Leistungsprobleme erkannt und behoben werden. Die Implementierung mithilfe von Elasticsearch und Kibana erfüllt die vom Unternehmen gestellte Anforderung das die Datenverarbeitung ausschließlich innerhalb des Unternehmens geschieht. Die erstellten Graphen in Kibana auf den mit Elasticsearch extrahierten Daten sind in der Lage die Ladezeiten in verschiedenen Arten aufzubereiten. Dabei 
 
 <!-- 
 # Konzept der Anwendung

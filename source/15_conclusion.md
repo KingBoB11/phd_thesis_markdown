@@ -11,7 +11,11 @@ Das Ziel dieser Bachelorarbeit war es, Leistungsprobleme in Mobilen Anwendungen 
 
 Das Ziel dieser Bachelorarbeit war es, bisher unerkannte Leistungsprobleme in den Mobilen Anwendungen der Firma Brunata zu erkennen um sie beheben zu können. Dabei hat sich die in den logs der Anwendung Dokumentierte benötigte Zeit von Prozessen und Anfragen als grundlage zur Erkennung von Leistungsproblemen herausgestellt. Aus der Untersuchung der Verfahren zur Analyse der Daten ergibt sich, dass die Extraktion benötigter Zeit von Prozessen und Anfragen aus den Logdaten durch Text Mining realisiert wird-->
 
-Das Ziel dieser Bachelorarbeit war es, bisher unerkannte Leistungsprobleme in den Mobilen Anwendungen der Firma Brunata zu erkennen um sie beheben zu können. Zur Realisierung wurde die ausgangslage der Anwendungen untersucht, mögliche Verfahren zur lösung der Problemstellung analysiert und ein Verfahren zur Erfüllung der Zielstellung Implementierung. 
+Das Ziel dieser Bachelorarbeit war es, bisher unerkannte Leistungsprobleme in den Mobilen Anwendungen der Firma Brunata zu erkennen um sie beheben zu können. Zur Realisierung wurde die ausgangslage der Anwendungen untersucht, mögliche Verfahren zur Lösung der Problemstellung analysiert und ein Verfahren zur Erfüllung der Zielstellung Implementierung. 
+
+Die Untersuchung zeigt, dass die von den Anwendungen Dokumentierte benötigte Zeit von Prozessen und Anfragen als Indikator für Leistungsprobleme dient. Die Extraktion benötigter Zeit von Prozessen und Anfragen aus den Logdaten wird durch einen Text Mining Prozess realisiert. Zur Implementierung des Prozesses wird Elasticsearch und Kibana verwendet. 
+
+Zusammenfassend lässt sich festhalten, dass zur Implementierung des Text Mining Verfahrens im Analyseprozess Elasticsearch und Kibana den Vorschriften des Unternehmen, das Daten ausschließlich intern zu verarbeiten gerecht werden. Kibana Elasticsearch übernimmt die Vorverarbeitung und Extraktion der Leistungsdaten 
 
 Die Untersuchung zeigt, dass die von den Anwendungen Dokumentierte benötigte Zeit von Prozessen und Anfragen als Indikator für Leistungsprobleme dient. Die Extraktion benötigter Zeit von Prozessen und Anfragen aus den Logdaten wird durch einen Text Mining Prozess realisiert. Zur Implementierung des Prozesses wird Elasticsearch und Kibana verwendet. 
 
@@ -27,7 +31,11 @@ Aus den Untersuchungen schließt sich, dass die Extraktion benötigter Zeit von 
 
 Durch diese Implementierung wurden Leistungsprobleme 
 -->
-## Zukünftige Arbeit
+## Ausblick
+
+Die hier dargestellten Ergebnisse werfen weiterführende Fragen auf. Was wäre wenn man im Analyseprozess ein Modell Trainiert um die Leistungsdaten zu extrahieren und Leistungsprobleme selbständig zu erkennen? Zur Grafischen Auswertung und Problemerkennung wird ein Mitarbeiter benötigt, dieser Prozess kostet Zeit und Ressourcen. Durch ein Modell welches selbständig die extrahierten Daten bewertet und Leistungsprobleme erkennt, würde es möglich werden die Problemerkennung zu Automatisieren und Ressourcen anderweitig zu verteilen. Der Initiale aufwand und die Kosten ein geeignetes Modell zu Trainieren und zu entwickeln würden in Betracht der Ersparnis einer Entwicklung nicht im Weg stehen. 
+
+
 
 Die hier dargestellten Ergebnisse führen zu der Frage, ist es möglich, ein Modell zu Trainieren das ein Leistungsproblem selbständig erkennt und Meldet? Zur Grafischen Auswertung wird ein Mitarbeitet benötigt welcher in dieser Zeit seiner normalen Tätigkeit nicht nachgehen kann. Würde nun ein Trainiertes Modell diese Aufgabe übernehemen wäre die Auswertung durch einen Mitarbeiter nicht mehr benötigt und es würden weiter Ressourcen gespart werden. 
 

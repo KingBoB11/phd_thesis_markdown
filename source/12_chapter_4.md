@@ -1,6 +1,6 @@
 # Konzept und Implementierung der Arbeit
 
-Um Leistungsprobleme mobiler Anwendungen erkennen und beheben zu können, soll die Leistung grafisch visualisiert werden. Dazu sollen Ladezeiten von Prozesse und Anfragen aus den Logdaten der Anwendung extrahiert und in form von Grafen aufbereitet werden. Zur Realisierung werden die Logdaten mithilfe der Open-Source Software Elasticsearch strukturiert, indexiert und anschließend die Leistungsdaten extrahiert. Für die Visualisierung werden die Daten mit Kibana  in einem Dashboard als Graph aufbereitet. Im Rahmen dieser Arbeit werden für die Implementierung Logdaten der Anwendung Gemo verwendet.
+Um Leistungsprobleme mobiler Anwendungen erkennen und beheben zu können, soll die Leistung grafisch visualisiert werden. Dazu sollen Ladezeiten von Prozesse und Anfragen aus den Logdaten der Anwendung extrahiert und in Form von Grafen aufbereitet werden. Zur Realisierung werden die Logdaten mithilfe der Open-Source Software Elasticsearch strukturiert, indexiert und anschließend die Leistungsdaten extrahiert. Für die Visualisierung werden die Daten mit Kibana  in einem Dashboard als Graph aufbereitet. Im Rahmen dieser Arbeit werden für die Implementierung Logdaten der Anwendung Gemo verwendet.
 <!--
 Es soll ein Prozess erstellt werden um Leistungsdaten aus Logdaten einer Anwendung zur extrahieren und mithilfe von Graphen zu visualisieren. Dadurch soll die Erkennung von Leistungsproblemen erleichtert und verbessert werden. Zum testen der Implementierung werden die Logdaten der Anwendung Gemo genutzt. Alle bisher von Geräten hochgeladenen Logs liegen auf dem Internen FTP-Server der Brunata -->
 
@@ -17,7 +17,7 @@ Bisher loggt die Anwendung die benötigte Zeit zum Abschließen von Performance 
 
 ## Datenvorverarbeitung 
 
-Zur Strukturierung der Logdaten wird die Mapping Vorlage in Auflistung \ref{map} verwendet. 
+Zur Strukturierung der Logdaten wird die Mappingvorlage in Auflistung \ref{map} verwendet.
 
 ```{caption="Mapping Vorlage der Daten" label=map .numberLines}
   "properties": {
@@ -26,15 +26,14 @@ Zur Strukturierung der Logdaten wird die Mapping Vorlage in Auflistung \ref{map}
     "message": { "type": "wildcard" },
     "class": { "type": "text"}
 ```
+Die Mappingvorlage definiert die vier Felder timestamp, loglevel, message und class die indexiert werden. Die Datentypen der Felder richten sich dabei nach dem Inhalt, den sie halten werden. Der Datentyp "date" steht dabei für ein Zeitformat oder Datum Format, das individuell festgelegt werden kann. "keyword" wird für strukturierten Inhalt wie IDs, E-Mail Adressen oder Status Codes verwendet. "wildcard" ist für unstrukturierten Maschinen generierten Inhalt, er ist optimiert für Felder mit großen Werten oder hoher Kardinalität.[@el5] "text" ist für normalen Volltext Inhalt[@el4]. Der Datentyp bestimmt zusätzlich, ob und wie Felder weiterverarbeitet werden können.
 
-Die Mapping Vorlage definiert die vier Felder, timestamp, loglevel, message, und class die Indexiert werden. Die Datentypen der Felder richten sich dabei nach dem Inhalt den sie halten werden. Der Datentyp "date" steht dabei für ein Zeitformat oder Datum Format das Individuell festgelegt werden kann. "keyword" wird für strukturierten Inhalt wie IDs, E-Mail Adressen oder Status Codes verwendet. "wildcard" ist für unstrukturierten Maschinen generierten Inhalt, er ist optimiert für Felder mit großen Werten oder hoher Kardinalität.[@el5] "text" ist für normalen Volltext Inhalt[@el4]. Der Datentyp bestimmt zusätzlich, ob und wie Felder weiterverarbeitet werden können. 
-
-Das Grok Pattern in Auflistung \ref{grok} Matched das Schema einer Logzeile und bestimmt die Inhalte der definierten Felder die Indexiert werden. 
+Das Grok Pattern in Auflistung \ref{grok} Matched das Schema einer Logzeile und bestimmt die Inhalte der definierten Felder, die indexiert werden.
 
 ```{caption="Grok Pattern zur Strukturierung der Daten" label=grok .numberLines}
 %{TIMESTAMP_ISO8601:timestamp} %{DATA:class} .?*\[%{LOGLEVEL:loglevel}\] %{GREEDYDATA:message} 
 ```
-Zum Testen wird das Pattern im Grok Debugger verwendet um wie in Abbildung \ref{grok2} dargestellt, eine Test Logzeile zu Strukturieren.
+Zum Testen wird das Pattern im Grok Debugger verwendet, um wie in Abbildung \ref{grok2} dargestellt, eine Logzeile zu strukturieren.
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{source/figures/grok.jpeg}
@@ -42,9 +41,9 @@ Zum Testen wird das Pattern im Grok Debugger verwendet um wie in Abbildung \ref{
 \label{grok2}
 \end{figure}
 
-Das Ergebnis, die Logzeile wird erfolgreich in die vier Felder unterteilt und eignet sich zur Strukturierung der Logs. 
+Das Ergebnis, die Logzeile, wird erfolgreich in die vier Felder unterteilt und eignet sich zur Strukturierung der Logs.
 
-Wie in Abbildung \ref{imp} veranschaulicht, wird das Mapping und das Grok Pattern verwendet, vor der Indexierung der Daten. Dabei wird direkt auf den Indexierten Daten eine Data View für Kibana erstellt. 
+Wie in Abbildung \ref{imp} veranschaulicht, wird das Mapping und das Grok Pattern verwendet, vor der Indexierung der Daten. Dabei wird direkt auf den indexierten Daten eine Data View für Kibana erstellt.
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{source/figures/imp.jpeg}
@@ -63,22 +62,20 @@ Zur Extraktion der zeit wird ein Skript in der Elasticsearch Skriptsprache Painl
     if (duration != null) emit(Integer.parseInt(duration));
 ```
 
-ein Grok Pattern auf das Feld "message" angewendet welches den Aufbau matched. Nach dem nicht jedes "message" Feld die benötigte Zeit enthält wird im Skript überprüft ob der Wert des Grok Patterns null entspricht.
-In der Auflistung \ref{dr} Zeile 1 wird ein Grok Pattern auf das Feld "message" angewendet. Das Pattern matched dabei das in [Aktueller Stand](#aktueller-stand) angesprochene Schema der Ereignis Beschreibung für die benötigte Zeit von Prozessen und Anfragen. Es Strukturiert dabei die Daten in die Felder "typ" und "duration". Der Wert des Feldes "duration" wird extrahiert und in die Variable 'duration' gespeichert. Anschließend wird in Zeile 2 überprüft, ob die Variable 'duration' nicht null ist, und wenn das der Fall ist, wird durch Umwandlung der Variable der integer wert davon zurückgegeben.
+In der Auflistung \ref{dr} Zeile 1 wird ein Grok Pattern auf das Feld "message" angewendet. Das Pattern matched dabei das in [Aktueller Stand](#aktueller-stand) angesprochene Schema der Ereignisbeschreibung für die benötigte Zeit von Prozessen und Anfragen. Es strukturiert dabei die Daten in die Felder "typ" und "duration". Der Wert des Feldes "duration" wird extrahiert und in die Variable 'duration' gespeichert. Anschließend wird in Zeile 2 überprüft, ob die Variable 'duration' nicht null ist, und wenn das der Fall ist, wird durch Umwandlung der Variable der integer wert davon zurückgegeben.
 
-Um eine Zuweisung der benötigten Zeit zum Prozess oder der Anfrage erstellen zu können wird ein weiteres Runtimefield für den Typ erstellt. Das Runtimefield erhält den Namen "typ", den Datentyp "Keyword" und das Lable "typ". 
-
+Um eine Zuweisung der benötigten Zeit zum Prozess oder der Anfrage erstellen zu können, wird ein weiteres Runtimefield für den Typ erstellt. Das Runtimefield erhält den Namen "typ", den Datentyp "Keyword" und das lable "typ".
 
 ```{caption="Script zur Extraktion des Namens der Anfrage oder des Prozesses" label=sc  .numberLines}
   String typ=grok('%{DATA:typ} took %{NUMBER:duration}').extract(doc["message"].value)?.typ;
     if (typ != null) emit(typ);
 ```
 
-Das Script in Auflistung \ref{sc} Funktioniert genauso wie das vorangegangene Skript nur auf dem Feld "typ" und ohne Umwandlung der Variable im Falle einer Erfolgreichen Prüfung auf null.
+Das Script in Auflistung \ref{sc} funktioniert genauso wie das vorangegangene Skript nur auf dem Feld "typ" und ohne Umwandlung der Variable im Falle einer erfolgreichen Prüfung auf null.
 
 ## Visualisierung 
 
-In Dashboards werden die extrahierten Daten in Paneelen Individuell Grafisch aufbereitet. Dazu gibt es in Kibana wie Abbildung \ref{typ} zeigt, eine Auswahl an vorlagen in welchen die Daten aufbereitet werden können.
+In Dashboards werden die extrahierten Daten in Paneelen individuell grafisch aufbereitet. Dazu gibt es in Kibana wie Abbildung \ref{typ} zeigt, eine Auswahl an vorlagen, in welchen die Daten aufbereitet werden können.
 
 \begin{figure}
 \centering
@@ -87,7 +84,7 @@ In Dashboards werden die extrahierten Daten in Paneelen Individuell Grafisch auf
 \label{typ}
 \end{figure}
 
-Abhängig von der Vorlage kann man die Felder bestimmen welche als Inhalt für Graphen dienen sollen. Zusätzlich ist es möglich wie in Abbildung \ref{logik} filter oder Formeln auf die Werte der Felder anzuwenden.
+Abhängig von der Vorlage kann man die Felder bestimmen, welche als Inhalt für Graphen dienen sollen. Zusätzlich ist es möglich, wie in Abbildung \ref{logik} filter oder Formeln auf die Werte der Felder anzuwenden.
 
 \begin{figure}
 \centering
@@ -96,7 +93,7 @@ Abhängig von der Vorlage kann man die Felder bestimmen welche als Inhalt für G
 \label{logik}
 \end{figure}
 
-Im Rahmen dieser Arbeit wurden vier Paneele in einem Dashboard zur Visualisierung der Daten erstellt. Das erste Paneel in Abbildung \ref{gag} verwendet eine Anzeige die in Prozent angibt wie viele Prozesse und Anfragen sich in einem festgelegtem Bereich befinden. Zusätzlich werden nur benötigten Zeiten kleiner gleich 100ms verwendet. Damit werden lange normale Initiale Ladezeiten ausgefiltert und verfälschen so nicht das Ergebniss und die Funktion der Anzeige. Die Anzeige dient dazu einen Überblick zu erhalten wie viele Werte im gewünschten Zielbereich liegen. Damit kann beispielweise der Fortschritt zu einem festgelegtem Ziel überwacht werden. 
+Im Rahmen dieser Arbeit wurden vier Paneele in einem Dashboard zur Visualisierung der Daten erstellt. Das erste Paneel in Abbildung \ref{gag} verwendet eine Anzeige, die in Prozent angibt wie viele Prozesse und Anfragen sich in einem festgelegtem Bereich befinden. Zusätzlich werden nur benötigten Zeiten kleiner gleich 100 ms verwendet. Damit werden lange normale Initiale Ladezeiten ausgefiltert und verfälschen so nicht das Ergebnis und die Funktion der Anzeige. Die Anzeige dient dazu, einen Überblick zu erhalten, wie viele Werte im gewünschten Zielbereich liegen. Damit kann beispielweise der Fortschritt zu einem festgelegtem Ziel überwacht werden.
 
 \begin{figure}
 \centering
@@ -105,7 +102,7 @@ Im Rahmen dieser Arbeit wurden vier Paneele in einem Dashboard zur Visualisierun
 \label{gag}
 \end{figure}
 
-Das zweite Paneel in Abbildung \ref{gag2} dargestellt, zeigt die Veränderung der Median und Maximalen Ladezeit eines gewählten Prozesses oder Anfrage in in einem festgelegtem zeitrahmen an. Damit wird es erleichtert Abweichungen und unerwartete Veränderungen erkennen und behandeln zu können.
+Das zweite Paneel in Abbildung \ref{gag2} dargestellt, zeigt die Veränderung der Median und maximalen Ladezeit eines gewählten Prozesses oder Anfrage in einem festgelegtem Zeitrahmen an. Damit wird es erleichtert, Abweichungen und unerwartete Veränderungen erkennen und behandeln zu können.
 
 \begin{figure}
 \centering
@@ -114,7 +111,7 @@ Das zweite Paneel in Abbildung \ref{gag2} dargestellt, zeigt die Veränderung de
 \label{gag2}
 \end{figure}
 
-Das in Abbildung \ref{balk} dargestellte dritte Paneel, stellt in einem Balken Diagramm die Längsten Maximalen ladezeiten dar. 
+Das in Abbildung \ref{balk} dargestellte dritte Paneel stellt in einem Balken Diagramm die längsten maximale Ladezeiten dar.
 
 \begin{figure}
 \centering
@@ -123,7 +120,7 @@ Das in Abbildung \ref{balk} dargestellte dritte Paneel, stellt in einem Balken D
 \label{balk}
 \end{figure}
 
-Das Letzte Paneel in Abbildung \ref{heat}, nutzt eine Heat Map und hebt die längsten drei Prozesse mit einer benötigten Zeit großer als 100ms farblich hervor.
+Das letzte Paneel in Abbildung \ref{heat}, nutzt eine Heat Map und hebt die längsten drei Prozesse mit einer benötigten Zeit großer als 100 ms farblich hervor.
 
 \begin{figure}
 \centering
@@ -132,7 +129,7 @@ Das Letzte Paneel in Abbildung \ref{heat}, nutzt eine Heat Map und hebt die län
 \label{heat}
 \end{figure}
 
-Das erstellte Dashboard kann auf alle Zukünftig Indexierten Logdaten, welche die verwendeten Felder "typ" und "duration" enthalten, angewendet werden.
+Das erstellte Dashboard kann auf alle zukünftig indexierten Logdaten, welche die verwendeten Felder "typ" und "duration" enthalten, angewendet werden.
 
 <!--
 Das Kästchen "Structured Data" in der Abbildung \ref{grok} zeigt wie das im Kästchen darüber stehende Grokpattern die Logzeile auswertet und Strukturiert. 

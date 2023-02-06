@@ -6,7 +6,14 @@ Dafür wurde zur Extraktion der benötigten Zeit von Prozessen und Anfragen aus 
 Dafür wurde die benötigte Zeit von Prozessen und Anfragen aus den Logdaten Extrahiert und Grafisch aufbereitet. 
 Dafür wurde die Extraktion und Aufbereitung von Leistungsdaten aus Logdaten der App mithilfe eines Analyseprozess geplant. Die benötigte Zeit von Prozessen und Anfragen diente als 
 
-Das Ziel der vorliegenden Arbeit ist es unerkannte Leistungsprobleme in Mobilen Anwendungen erkennen und beheben zu können. Dazu wird die Folgende Forschungsfrage gestellt Wie kann ein Verfahren implementiert werden um die Leistung einer Mobilen Anwendung zu Evaluieren? 
+<!-- Zählerwerte werden nur von alten Geräte erfasst moderne Funken das von selbst.
+Meldung Monteur und danach Entwickler bearbeitung
+<!--
+Dafür wurde zur Extraktion der benötigten Zeit von Prozessen und Anfragen aus logdaten ein Analyseprozess angewendet.
+Dafür wurde die benötigte Zeit von Prozessen und Anfragen aus den Logdaten Extrahiert und Grafisch aufbereitet.
+Dafür wurde die Extraktion und Aufbereitung von Leistungsdaten aus Logdaten der App mithilfe eines Analyseprozess geplant. Die benötigte Zeit von Prozessen und Anfragen diente als
+
+Das Ziel der vorliegenden Arbeit ist es unerkannte Leistungsprobleme in Mobilen Anwendungen erkennen und beheben zu können. Dazu wird die Folgende Forschungsfrage gestellt Wie kann ein Verfahren implementiert werden um die Leistung einer Mobilen Anwendung zu Evaluieren?
 
 Das Ziel der vorliegenden Arbeit ist es zu beantworten, wie man die Performance Mobiler Anwendungen Evaluieren kann. Dazu wird die Folgende Forschungsfrage gestellt: Wie kann man
 -->

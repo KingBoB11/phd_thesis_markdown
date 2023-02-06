@@ -1,7 +1,24 @@
 # Bewertung der Ergebnisse
 
-Der im Rahmen der Bachelorarbeit entstandene Analyseprozess hatte das Ziel, aus den Logdaten der Anwendungen die benötigte Zeit von Prozessen und Anfragen zu extrahieren und aufzubereiten. Damit sollte die aktuelle Problembehandlung von Leistungsproblemen vereinfacht und verbessert werden. Zusätzlich sollen damit unerkannte Leistungsprobleme erkannt und behoben werden. Die Implementierung mithilfe von Elasticsearch und Kibana erfüllt die vom Unternehmen gestellte Anforderung, das die Datenverarbeitung ausschließlich innerhalb des Unternehmens geschieht. Die erstellten Graphen in Kibana auf den mit Elasticsearch extrahierten Daten sind in der Lage, die Ladezeiten in verschiedenen Arten aufzubereiten. Dabei erleichtert die grafische Darstellung der medialen und maximalen benötigten Zeit eines spezifischen Prozesses auf einem Zeitabschnitt betrachtet die Untersuchung von gemeldeten Problemen sowie die Erkennung von Leistungsproblemen.
 
+Der im Rahmen der Bachelorarbeit entstandene Analyseprozess hatte das Ziel, aus den Logdaten der Anwendungen die benötigte Zeit von Prozessen und Anfragen zu extrahieren und aufzubereiten. Damit sollte die aktuelle Problembehandlung von Leistungsproblemen vereinfacht und verbessert werden. Zusätzlich sollen damit unerkannte Leistungsprobleme erkannt und behoben werden. Die Implementierung mithilfe von Elasticsearch und Kibana erfüllt die vom Unternehmen gestellte Anforderung, das die Datenverarbeitung ausschließlich innerhalb des Unternehmens geschieht. Die erstellten Graphen in Kibana auf den mit Elasticsearch extrahierten Daten sind in der Lage, die Ladezeiten in verschiedenen Arten aufzubereiten. Zur Bewertung der Funktionalität der erstellten Graphen wurden die Panele mit Drei Test Logdateien getestet. Die Logdateien enthalten Drei, Fünf und Acht Leistungsprobleme. 
+
+---------------------------------------------------------------------------
+Graphen                   Drei                      Fünf                         Acht   
+--------------         ------------------------   -----------------------   ----------------------  
+Panel 1                     3                            5                         8
+
+Panel 2                     3                            5                         8   
+
+Panel 3                     3                            5                         8
+
+Panel 4                     3                            3                         3
+
+----------------------------------------------------------------------------------------
+
+Table: Zeigt das Ergebnisse der Anzahl erkannten Leistungsprobleme der Paneele.\label{EvaluationTable}
+
+Die Tests ergaben dass, die grafische Darstellung der medialen und maximalen benötigten Zeit eines spezifischen Prozesses auf einem Zeitabschnitt betrachtet im zweiten Panel die Untersuchung von gemeldeten Problemen sowie die Erkennung von Leistungsproblemen erleichtert. Des weiteren sind das erste und dritte Panel eine sinnvolle und Erfolg versprechende Erweiterung zur Erkennung von Leistungsproblemen. Das vierte Panel mit der Heat map ist aufgrund seiner begrenzten und unübersichtlichen Darstellung nicht für eine Große menge von Leistungsproblemen geeignet, ein sinnvoller einsatz ist in Kombination mit dem Zweiten Panel möglich in dem die erfassten Problem Prozesse und Anfragen genauer betrachtet werden.
 <!-- 
 # Konzept der Anwendung
 

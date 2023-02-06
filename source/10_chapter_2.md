@@ -38,7 +38,7 @@ Die Mobile Anwendung Gemo stellt unter anderem die Funktionen zur Verfügung Ter
 \end{figure}
 Die gesammelten Daten werden über die Sync-App Synchronisieren und ins SAP-System geladen. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual private Network ist ein geschlossenes Netzwerk, welches zum Transport privater Daten ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Wie in Abbildung 2.3 dargestellt, wird bei der Synchronisation von Daten über einen mobilen Client diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Plattform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile) verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser für die Anbindung an das ERP System (Backend) decodiert. Mithilfe von RFC^[Remote Function Call: SAP-Schnittstelle ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und strukturiert die Daten. 
 
-![Architekturkomponenten bei Brunata](Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png "Architekturkomponenten bei Brunata")
+![Architekturkomponenten bei Brunata](Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png "Architekturkomponenten bei Brunata [@ach]")
 
 <!--
 
@@ -69,7 +69,7 @@ Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten u
 Die Ereignisbeschreibung für die benötigte Zeit von Prozessen und Anfragen ist dabei nach dem Schema:  
 [Prozessname oder Anfrage] ["took"] [benötigte Zeit in ms] aufgebaut.
 
-Durch die Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und Behandlung von Leistungsproblemen zeitaufwändig. Daher sollte die Untersuchung der Leistungsdaten vereinfacht werden. Dies kann durch die automatisierte Extraktion und Aufbereitung der Leistungsdaten aus den Logdaten realisiert werden.
+Alle Mobilen Anwendungen der Firma Loggen nach dem selben oben benannten Schema. Durch die Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und Behandlung von Leistungsproblemen zeitaufwändig.  Daher sollte die Untersuchung der Leistungsdaten vereinfacht werden. Dies kann durch die automatisierte Extraktion und Aufbereitung der Leistungsdaten aus den Logdaten realisiert werden.
 <!--
 Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Die benötigte Zeit von Prozessen wird geloggt und dient als Anhaltspunkt für Leistungsprobleme. Die durch einen Entwickler zu untersuchenden Logs umfassen ca 5000 Zeilen oder mehr. -->
 

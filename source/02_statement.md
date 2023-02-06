@@ -4,11 +4,7 @@
   Um auf Nummer sicher zu gehen, sollte das Dokument https://w3-mediapool.hm.edu/mediapool/media/fk07/fk07_lokal/studienangebot_3/studiengaenge_neu/docs/ifb/Anmeldung_Bachelorarbeit_IF_112017.pdf zusätzlich zu der Erklärung auf dieser Seite ausgefüllt, ausgedruckt und abgegeben werden.
 -->
 \chapter*{Erklärung}
-
-\begin{center}
-  \aName, geb. \aGeburtsdatum\space (\aStudiengruppe,\space \aSemester)
-\end{center}  
-
+  
 \vspace*{1.0cm}
 \noindent
 Hiermit erkläre ich, dass ich die Bachelorarbeit selbständig verfasst, noch nicht anderweitig
@@ -17,12 +13,10 @@ benutzt sowie wörtliche und sinngemäße Zitate als solche gekennzeichnet habe.
 
 \vspace*{1.0cm}
 
-München, \datum
-
-\vspace*{1.0cm}
-
 \dotfill
 
-Unterschrift
+\aName, geb. \aGeburtsdatum\space (\aStudiengruppe,\space \aSemester)
+
+München, \datum
 \vspace*{\fill}
 \pagenumbering{gobble}

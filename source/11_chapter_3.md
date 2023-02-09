@@ -1,34 +1,39 @@
 # Stand der Technik
 
-<!--Um die Leistung einer Anwendung zu Evaluieren
-Leistungsdaten aus Logdaten zu extrahieren und zu verarbeiten ist eine bekannte Herausforderung beim Text Mining.-->Performance relevante Daten zu erheben und verarbeiten ist eine bekannte Herausforderung bei der Performance Evaluation. Es gibt viele Lösungsansätze zu den verschiedenen Verfahren. Sie unterscheiden sich im Aufwand der Vorverarbeitung als auch in der Weiterverarbeitung der Daten. Die Schwierigkeit dabei ist es, die Leistung genau zu messen, da es eine Vielzahl von Geräten, Netzwerken und Betriebssystemen gibt, die verwendet werden.
+## Probleme im Status quo
 
-Es hat sich in den letzten Jahren durchgesetzt, mittels Text Mining Leistungsdaten aus Logs zu extrahieren und grafisch aufzuarbeiten. Die Entwicklung einer solchen Auswertung und Analyse bei beispielweise Datadog[@dataDog],  Dynatrace[@dynatrace] und New Relic[@newRelic] hat zu einem Paradigmenwechsel in der Performance Evaluation geführt, sodass die Performance Evaluation für eine Vielzahl von Anwendungen ohne großen Aufwand möglich ist.
+<!--Um die Leistung einer Anwendung zu Evaluieren 
+Leistungsdaten aus Logdaten zu extrahieren und zu verarbeiten ist eine bekannte Herausforderung beim Text Mining.-->Performancerelevante Daten zu erheben und zu verarbeiten, bildet eine bekannte Herausforderung bei der Performance-Evaluation. Es gibt viele Lösungsansätze zu den verschiedenen Verfahren des Bereichs. Sie unterscheiden sich im Aufwand der Vorverarbeitung sowie in der Weiterverarbeitung der Daten. Die Schwierigkeit besteht darin, die Leistung genau zu messen, da es eine Vielzahl von Geräten, Netzwerken und Betriebssystemen gibt, die in diesem Rahmen verwendet werden können.
 
-Bei Softwarelösungen der führenden Unternehmen wie Datadog ist es notwendig, zur vollumfänglichen Nutzung Daten außerhalb des Unternehmens zu verarbeiten.^[vgl. Magic Quadrant im Gartner Report [@gartner] und Dokumentation Datadog [@dataDog]]. Die Softwarelösung des Anbieters Splunk wirbt mit der Absicherung durch Aflac mit einem sicheren Umgang der Daten. Aflac ist eins der führenden Unternehmen im Bereich der Absicherung vertraulicher Daten. Die Softwarelösung von Splunk ist wie die führenden Softwarelösungen cloudbasiert und ermöglicht somit eine schnelle Verarbeitung und Skalierung. Die Unternehmensphilosophie, das Daten nur im Unternehmen verarbeitet werden und die in [Data Mining](#Data-Mining) beschriebene Problematik in der datenschutzkonformen Datenverarbeitung führen dazu, das keine Softwarelösungen mit externer Datenverarbeitung infrage kommen. Wie Abbildung \ref{elproz} darstellt, werden zur Implementierung der Data Preperation und Modelling Phase im Analyseprozess die Open-Source Such- und Analysesoftware Elasticsearch verwendet.  Für die Phasen Evaluation und Deployment wird die Open-Source-Analyse- und Visualisierungsplattform Kibana verwendet. Ziel der Implementierung ist es, die benötigte Zeit von Prozessen und Anfragen aus den Logdaten zu Extrahieren und sie in Form von Graphen darzustellen. Dadurch soll es Entwicklern ermöglicht werden, bisher unerkannte Leistungsprobleme zu erkennen und beheben zu können.
+Es hat sich in den letzten Jahren durchgesetzt, mittels Text-Mining Leistungsdaten aus Logs zu extrahieren und grafisch aufzuarbeiten. Die Entwicklung einer solchen Auswertung und Analyse bei beispielweise Datadog[@dataDog],  Dynatrace[@dynatrace] und New Relic[@newRelic] haben zu einem Paradigmenwechsel in der Performance-Evaluation geführt, sodass diese neu für eine Vielzahl von Anwendungen ohne großen Aufwand möglich ist.
+
+Bei Softwarelösungen der führenden Unternehmen wie Datadog ist es notwendig, zur vollumfänglichen Nutzung Daten außerhalb des Betries zu verarbeiten^[vgl. Magic Quadrant im Gartner Report [@gartner] und Dokumentation Datadog [@dataDog]]. Die Softwarelösung des Anbieters Splunk wird mit der Absicherung durch Aflac zum sicheren Umgang der Daten beworben. Aflac ist eines der führenden Unternehmen im Bereich der Absicherung vertraulicher Daten. Die Softwarelösung von Splunk ist wie die führenden Softwarelösungen cloudbasiert und ermöglicht somit eine schnelle Verarbeitung sowie Skalierung. \ 
+Die Unternehmensphilosophie der Brunata Metrona, wonach Daten nur intern verarbeitet werden, und die beschriebene Problematik der datenschutzkonformen Datenverarbeitung im [Data Mining](#Data-Mining) führen dazu, dass keine Softwarelösungen mit externer Datenverarbeitung infrage kommt. Wie in Abbildung \ref{elproz} darstellt ist, werden zur Implementierung der Data-Preperation und der Modelling-Phase im Analyseprozess die Open-Source Such- und Analysesoftware Elasticsearch verwendet. Für die Phasen Evaluation und Deployment kommt die Open-Source-Analyse- und Visualisierungsplattform Kibana zur Anwendung. Das Ziel der
+Implementierung besteht darin, die von Prozessen und Anfragen benötigte Zeit aus den Logdaten zu extrahieren und in Form von Graphen darzustellen. Dadurch soll es Entwicklern ermöglicht werden, bisher unerkannte Leistungsprobleme zu erkennen und zu beheben.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/prozessel.jpeg}
-\caption{Prozessdiagramm veranschaulicht Methoden und Aufbau des Text Mining mittels Elasticsearch und Kibana}
+\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/elpic.jpeg}
+\caption{Prozessdiagramm zu Methoden und Aufbau des Text-Mining mittels Elasticsearch und Kibana (eigene Darstellung in Anlehnung an IBN SPSS Modeler CRISP-DM Guide)}
 \label{elproz}
-\end{figure}
-<!-- Ander Programme kurz vorstellen und bewerten und dann Zeigen wieso wir unsers verwenden.-->
+\end{figure} 
+
 ## Elasticsearch und Kibana
 
-Elasticsearch ist eine verteilte Such- und Analysesoftware, die im Mittelpunkt des Elastic Stacks steht. Elasticsearch bietet Such- und Analysefunktionen für verschiedene Arten von Daten. Unabhängig davon, ob es sich um strukturierte oder unstrukturierte Text-, numerische oder Geodaten handelt, kann Elasticsearch diese Daten effizient speichern und indizieren, sodass eine schnelle Suche möglich ist. Elasticsearch bietet Methoden an, die über die einfache Datenabfrage hinausgehen und Informationen aggregieren, um Trends und Muster in den Daten erkennen. Die verteilte Natur von Elasticsearch ermöglicht es, dass sich der Einsatz an das wachsende Volumen von Daten und Abfragen anpasst.[@el6]
+Bei Elasticsearch handelt es sich um eine verteilte Such- und Analysesoftware, die im Mittelpunkt von Elastic Stack steht. Elasticsearch bietet Such- und Analysefunktionen für  Arten von Daten. Unabhängig davon, ob es sich um strukturierte oder unstrukturierte Text- bzw. numerische oder Geodaten handelt, können diese in Elasticsearch effizient gespeichert und indiziert werden, sodass eine schnelle Suche möglich ist. Elasticsearch bietet Methoden, die über die einfache Datenabfrage hinausgehen und Informationen aggregieren, um Trends und Muster in den Daten erkennen. Die verteilte Natur von Elasticsearch ermöglicht es, den Einsatz dem wachsenden Volumen von Daten und Abfragen anzupassen.[@el6] 
 
-Beim Mapping werden die Felder der Daten, die indiziert werden sollen, definiert. Dieser Prozess ist notwendig, um sicherzustellen, dass die Suchmaschine die Daten richtig analysieren und interpretieren kann. Durch die Bereitstellung von Mapping-Informationen können Benutzer steuern, wie ihre Daten indiziert werden und wie die Suchmaschine die Daten bei einer Abfrage interpretiert.
+Beim Mapping werden die Felder der Daten definiert, die indiziert werden sollen. Dieser Prozess ist notwendig, um sicherzustellen, dass die Suchmaschine die Daten korrekt analysieren und interpretieren kann. Durch die Bereitstellung von Mapping-Informationen können Benutzer steuern, wie ihre Daten indiziert werden und wie die Suchmaschine diese bei einer Abfrage interpretiert.
 
-Zur Vorbereitung und Strukturierung der Daten in die definierten Felder werden die Daten mit einem Grok Pattern welches auf den Inhalt der Daten passt, extrahiert und verarbeitet. Grok ist ein Dialekt für reguläre Ausdrücke, es verwendet die Oniguruma Bibliothek womit alle regulären Ausdrücke akzeptiert werden[@el3]. Grok erlaubt, bestehende Muster zu benennen und durch Kombination komplexere Muster zu erstellen, welche den gewollten Feldern entsprechen.
+Zur Vorbereitung und zur Strukturierung der Daten in die definierten Felder werden sie mit einem Grok-Pattern, das zu ihrem Inhalt passt, extrahiert und verarbeitet. Grok ist ein Dialekt für reguläre Ausdrücke, in dessen Rahmen die Oniguruma Bibliothek verwendet wird, womit alle regulären Ausdrücke akzeptiert werden.[@el3] Grok erlaubt es, bestehende Muster zu benennen und durch ihre Kombination komplexe Muster zu erstellen, die den gewollten Feldern entsprechen.
 
-Auf den indexierten Daten können zur Laufzeit Runtimefields erzeugt werden. Ein Runtimefield ist ein Feld, das zur Laufzeit ausgewertet wird. Es dient dazu, Felder ohne erneute Indexierung der Daten hinzuzufügen, den Rückgabe wert, eines Feldes zu überschreiben oder ein Feld für einen bestimmten Zweck zu definieren, ohne das zugrunde liegende Schema zu verändern[@el1]. Mithilfe von Skripten werden benutzerdefinierte Ausdrücke ausgewertet. Skripte können in Runtimefields verwendet werden, um zur Laufzeit Werte aus indexierte Felder mit einem Grok Pattern zu extrahieren.
+Mit den indexierten Daten können zur Laufzeit Runtimefields erzeugt werden.
+Ein Runtimefield bildet ein Feld, das zur Laufzeit ausgewertet wird. Es dient dazu, Felder ohne erneute Indexierung der Daten hinzuzufügen, den Rückgabewert eines Feldes zu überschreiben oder ein Feld für einen bestimmten Zweck zu definieren, ohne das zugrunde liegende Schema zu verändern.[@el1] Mithilfe von Skripten werden benutzerdefinierte Ausdrücke ausgewertet. Skripte können in Runtimefields eingesetzt werden, um Werte zur Laufzeit aus indexierte Felder mit einem Grok-Pattern zu extrahieren.
 
 
-Kibana ist eine Open-Source-Analyse- und Visualisierungsplattform für die Erstellung von interaktiven Dashboards und Grafiken auf Basis von Elasticsearch zur Erforschung und Visualisierung der Daten. Kibana benötigt eine Data View um Elasticsearch Daten zu verwenden. Dabei kann eine Data View auf einem oder mehr Indizes, Datenstrom oder Index verweisen.[@kib] In Dashboards können die Daten von einer oder mehreren Data Views in einer Sammlung von Paneelen Grafisch dargestellt werden. Dabei kann der Inhalt der Felder der Elasticsearch Daten in Grafen Individuell angepasst und aufbereitet werden.[@kib2]
+Kibana bildet eine Open-Source-Analyse- und Visualisierungsplattform für die Erstellung von interaktiven Dashboards und Grafiken auf Basis von Elasticsearch zur Erforschung sowie zu Visualisierung der Daten. Um hier Elasticsearch-Daten zu verwenden, wird eine Data-View benötigt, die auf einen oder mehr Indizes oder Datenströme verweisen kann.[@kib] In Dashboards können die Daten von einer oder mehreren Data-Views in einer Sammlung von Paneelen grafisch dargestellt werden. Dabei kann der Inhalt der Felder der Elasticsearch-Daten individuell angepasst und aufbereitet werden.[@kib2]
 
 <!--
-oder
+oder 
 
 
 AUSBLICK
@@ -36,9 +41,9 @@ Durch die Neugewonnenen Einblicke und die Vereinfachte Darstellung der Probleme 
 
 Kibana ist eine Open-Source-Analyse- und Visualisierungsplattform, die es Benutzern ermöglicht, interaktive Dashboards und Grafiken zur Erforschung und Visualisierung von Elasticsearch Daten zu erstellen. Dazu 
 
-Im Analyse Prozess der im vorherigen Kapitel behandelt wurde übernimmt Elasticsearch
+Im Analyse Prozess der im vorherigen Kapitel behandelt wurde übernimmt Elasticsearch 
 
-Mit einem kombinierten Einsatz der Methoden und Verfahren von Elasticsearch und Kibana ist es möglich, Leistungsdaten aus Logdaten zu extrahieren und grafisch aufzuarbeiten. Dadurch können Leistungsprobleme identifiziert und behoben werden.
+Mit einem kombinierten Einsatz der Methoden und Verfahren von Elasticsearch und Kibana ist es möglich, Leistungsdaten aus Logdaten zu extrahieren und grafisch aufzuarbeiten. Dadurch können Leistungsprobleme identifiziert und behoben werden. 
 Die Abbildung \ref{elproz} veranschaulicht, welche aufgaben Elasticsearch und Kibana im Text Mining Prozess übernehmen.
 
 \begin{figure}
@@ -46,7 +51,7 @@ Die Abbildung \ref{elproz} veranschaulicht, welche aufgaben Elasticsearch und Ki
 \includegraphics[width=1\textwidth,height=1\textheight]{source/figures/prozessel.jpeg}
 \caption{Prozessdiagramm veranschaulicht Methoden und Aufbau des Text Mining mittels Elasticsearch und Kibana}
 \label{elproz}
-\end{figure}
+\end{figure} 
 
 Elasticsearch übernimmt dabei die Vorbereitung der Daten und die Extraktion der Informationen. Kibana stellt die Visualisierung der Daten zur Verfügung. Nachdem Elasticsearch und Kibana Open-Source sind, können diese auf internen Server agieren und bereitgestellt werden.
 
@@ -58,7 +63,7 @@ Bei der Entwicklung einer automatisierten First-Level-Support Schnittstelle, bas
 Das Ziel dieser Arbeit ist es, basierend auf den Logs einer Mobilen Anwendung der Firma eine Performance Evaluation zu entwerfen und durchzuführen, die weiterentwickelt und auf weitere Anwendungen der Firma angewendet werden kann. Durch die technische Errungenschaft im Bereich Volltextsuche und Auswertung, soll erforscht werden, ob diese Auswertungen auch im bereich der Gemo Logs umsetzbar sind. Optimal wäre es, wenn es gelingt, das auftretende Performance Probleme bei der Ablesung oder Montage durch einen Monteur mithilfe von Performance Monitoring zu erkennen.
 
 
-Hier erläutern große anbieter nehmen wir aber nicht weil Philosphie daten bleiben inhouse und probleme mit leaks.
+Hier erläutern große anbieter nehmen wir aber nicht weil Philosphie daten bleiben inhouse und probleme mit leaks. 
 
 gehen darauf ein was elastic ist und macht udn was es in usnerem prozess übernimmt
 Bild wie elastic funzt und was es bei uns übernimmt

@@ -1,6 +1,8 @@
 # Grundlagen
 
-Die Performance Evaluation Mobiler Anwendungen ist der Prozess zur Bewertung der Qualität, Zuverlässigkeit und Leistung einer mobilen Anwendung, um ihre Eignung für einen bestimmten Zweck zu bestimmen. Dieser Prozess umfasst in der Regel das Sammeln und Analysieren von Metriken wie Reaktionszeit, Speichernutzung, Energieverbrauch und Benutzererfahrung sowie anderer Faktoren. Die Bewertung hilft Entwicklern, fundierte Entscheidungen über Design und die Funktionalität ihrer Produkte zu treffen, und kann auch dazu verwendet werden, verbesserungswürdige Bereiche zu ermitteln.[@Dikaiakos2001]
+## Form und Zweck der Performance-Evaluation
+
+Die Performance-Evaluation mobiler Anwendungen ist der Prozess der Bewertung ihrer Qualität, Zuverlässigkeit und Leistung mit dem Ziel, ihre Eignung für einen bestimmten Zweck zu bestimmen. Dieser Vorgang umfasst in der Regel das Sammeln und das Analysieren von Metriken wie Reaktionszeit, Speichernutzung, Energieverbrauch und Benutzererfahrung sowie anderen Faktoren. Die Bewertung hilft Entwicklern, fundierte Entscheidungen über Design und Funktionalität ihrer Produkte zu treffen. Sie kann auch dazu verwendet werden, verbesserungswürdige Bereiche zu ermitteln.[@Dikaiakos2001]
 <!--
 Das folgende Kapitel schafft die Grundlagen auf der die Umsetzung der Implementierung basiert. Den Anfang bildet dabei die Einführung in die zu Evaluierende Anwendung. Anschließend werden die wichtigsten Bestandteile der Performance Evaluation einer Mobilen Anwendung erläutert und zur weiteren Bearbeitung in der Arbeit in 3 Abschnitte unterteilt.
 
@@ -13,7 +15,7 @@ Bild homescreen und funktionen der APP
 -->
 
 ## Aktuelle Anwendung
-<!-- Logs sind ANwendungsübergreifend einheitloch  daher keine weitere Formatierung-->
+
 <!-- >
 \begin{figure}
 \centering
@@ -21,22 +23,23 @@ Bild homescreen und funktionen der APP
 \caption{Anwendungs Umfeld und Aufbau bei Brunata}
 \label{aufbau}
 \end{figure}
-Abbildung \ref{aufbau} veranschaulicht die Anwendungen und den Aufbau. -->
-Die Brunata nutzt zur Steuerung und Unterstützung der Arbeitsschritte der Mess- und Montagepartner eigens entwickelte Mobile Anwendungen. Die Mobile Anwendung Gemo bündelt dabei die Funktionen der anderen Anwendungen und ist die Schnittstelle für Mess- und Montage Partner. Der Aufbau und Zusammenhang der Anwendungen wird in Abbildung \ref{anw} Veranschaulicht.
+Abbildung \ref{aufbau} veranschaulicht die Anwendungen und den Aufbau. --> 
+Bei der Brunata werden zur Steuerung und zur Unterstützung der Arbeitsschritte der Mess- und Montagepartner eigens entwickelte mobile Anwendungen eingesetzt. In der mobilen Anwendung Gemo sind die Funktionen der anderen Anwendungen gebündelt, sie dient als Schnittstelle für Mess- und Montagepartner. Der Aufbau und der Zusammenhang aller firmeninternen Anwendungen werden in Abbildung \ref{anw} veranschaulicht.
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/aufbau.png}
-\caption{Vereinfachte Darstellung des zusammenhangs der Mobilen Anwendungen der Brunata}
+\includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/gerate.png}
+\caption{Vereinfachte Darstellung des Zusammenhangs der mobilen Anwendungen der Brunata}
 \label{anw}
 \end{figure}
-Die Mobile Anwendung Gemo stellt unter anderem die Funktionen zur Verfügung Termine für die Ablesung von Zählerwerten sowie der Montage von Geräten zu erstellen. Des Weiteren leitet und kontrolliert die Anwendung den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können. Der Aufbau und die Funktionen der Anwendung sind in Abbildung \ref{gemo} zu sehen.
+In der mobilen Anwendung Gemo werden unter anderem die Funktionen zur Verfügung gestellt,
+Termine zum Ablesen von Zählerwerten sowie für die Montage von Geräten zu erstellen. Des Weiteren werden hier der korrekte Ein- und Ausbau der Geräte geleitet sowie kontrolliert. Ebenfalls wird sichergestellt, dass Fehler erkannt und behoben werden können. Der Aufbau und die Funktionen der Anwendung sind in Abbildung \ref{gemo} einsehbar.
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=0.5\textheight]{source/figures/gemo.jpeg}
 \caption{Screenshot aus der Anwendung Gemo}
 \label{gemo}
 \end{figure}
-Die gesammelten Daten werden über die Sync-App Synchronisieren und ins SAP-System geladen. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual private Network ist ein geschlossenes Netzwerk, welches zum Transport privater Daten ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Wie in Abbildung 2.3 dargestellt, wird bei der Synchronisation von Daten über einen mobilen Client diese mittels RSA verschlüsselt und in ein text-basiertes Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middlewarekomponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Plattform integriert werden.[@netWeaver] Mithilfe der Middleware werden Backenddaten, welche speziell für die Benutzung mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile) verwaltet. Die Middleware Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser für die Anbindung an das ERP System (Backend) decodiert. Mithilfe von RFC (Remote Function Call)^[Remote Function Call: SAP-Schnittstelle ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und strukturiert die Daten. 
+Die gesammelten Daten werden über die Sync-App synchronisiert und ins SAP-System geladen. Zur geschützten Datenübertragung wird das mobile Internet mit der VPN-Technologie^[VPN Virtual private Network ist ein geschlossenes Netzwerk, welches zum Transport privater Daten ein anderes öffentliches Netzwerk nutzt.[@vpn]] verwendet. Wie in Abbildung 2.3 dargestellt wird bei der Synchronisierung von Daten über einen mobilen Client diese mittels RSA verschlüsselt und in einem textbasierten Format (XML) in die Middleware übertragen. Die Anwendungsplattform SAP NetWeaver 7.x wird als Middleware-Komponente genutzt. Mit dieser Anwendung können unterschiedliche Geschäftsprozesse auf einer Plattform integriert werden [@netWeaver] Mithilfe der Middleware werden Backenddaten verwaltet, die speziell für die Benutzung mobiler Anwendungen aufbereitet wurden (SAP NetWeaver Mobile) verwaltet. Die Middleware-Komponente dient vor allem der Verteilung von Benutzer- und Geräteverwaltung sowie Daten- und Softwareaktualisierungen. Die Daten aus der Middleware werden über einen XML-Parser für die AAnbindung ans ERP-System (Backend) decodiert. Mithilfe von RFC (Remote-Function-Calls)^[Remote Function Call: SAP-Schnittstelle ermöglicht Kommunikation zwischen Systemen und führt Funktionen aus.[@rfc]] führt der Parser bestimmte Funktionen aus und strukturiert die Daten.
 
 ![Architekturkomponenten bei Brunata [@ach]](Z:/Semester_7/Bachelor_Arbeit/phd_thesis_markdown/source/figures/server.png "Architekturkomponenten bei Brunata [@ach]")
 
@@ -48,7 +51,7 @@ Die gesammelten Daten werden über die Sync-App Synchronisieren und ins SAP-Syst
 \caption{Architekturkomponenten bei Brunata}
 \end{figure}
 
-Die Brunata stellt ihren Mess- und Montagepartnern die eigens entwickelte App GEMO (**ge**meinsame **Mo**ntagelösung) zur Verfügung. Die Anwendung übernimmt dabei die eine vielzahl von Aufgaben und ist die
+Die Brunata stellt ihren Mess- und Montagepartnern die eigens entwickelte App GEMO (**ge**meinsame **Mo**ntagelösung) zur Verfügung. Die Anwendung übernimmt dabei die eine vielzahl von Aufgaben und ist die 
 geMo **ge**meinsame **Mo**ntagelösung übernimmt die Aufgabe, die Arbeitsschritte der Mess- und Montagepartner zu bündeln. Dabei ist es möglich, über die App Termine für die Ablesung von Zählerwerten, sowie der Montage von Geräten wie Rauchmeldern, zu erstellen. Des Weiteren leitet und Kontrolliert die App den korrekten Ein- und Ausbau der Geräte und stellt sicher, dass Fehler erkannt und behoben werden können.
 
 
@@ -56,109 +59,116 @@ geMo **ge**meinsame **Mo**ntagelösung übernimmt die Aufgabe, die Arbeitsschrit
 
 Die Performance Evaluation Mobiler Anwendungen ist der Prozess zur Bewertung der Qualität, Zuverlässigkeit und Leistung einer Mobilen Anwendung, um ihre Eignung für einen bestimmten Zweck zu bestimmen. Dieser Prozess umfasst in der Regel das Sammeln und Analysieren von Metriken wie Reaktionszeit, Speichernutzung, Energieverbrauch und Benutzererfahrung sowie anderer Faktoren. Die Bewertung hilft den Entwicklern, fundierte Entscheidungen über Design und die Funktionalität ihrer Produkte zu treffen, und kann auch dazu verwendet werden, Verbesserungswürdige Bereiche zu ermitteln.[@Dikaiakos2001]
 -->
-## Aktueller Stand
+## Aktueller Stand 
 
-Bei der Meldung eines Performanzproblems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht der Entwickler die hochgeladenen Logdaten des Geräts nach dem Problem. Dabei dient die benötigte Zeit von Prozessen und Anfragen, die geloggt wird als Anhaltspunkt für Leistungsprobleme. Die Logdateien umfassen ca. 5000 Zeilen und sind wie Abbildung \ref{logs} darstellt, nach dem Schema:  
-[Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert.
+Bei der Meldung eines Performance-Problems durch den Monteur werden die Logdaten und die Datenbank des Geräts auf den internen FTP-Server der Brunata geladen. Das gemeldete Problem wird von einem Entwickler überprüft. Dazu untersucht dieser die hochgeladenen Logdaten des Geräts auf das Problem. Dabei dient die für Prozesse und Anfragen benötigte, geloggte Zeit als Anhaltspunkt für das Bestimmen von Leistungsproblemen. Die Logdateien umfassen ca. mindestens 5000 Zeilen und sind nach dem Schema 
+[Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung] generiert (siehe auch Abbildung \ref{logs}).
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=1\textheight]{source/figures/logs.PNG}
-\caption{Ausschnitt aus einer Logdatei}
+\caption{Ausschnitt aus einer Logdatei }
 \label{logs}
 \end{figure}
-Die Ereignisbeschreibung für die benötigte Zeit von Prozessen und Anfragen ist dabei nach dem Schema:  
-[Prozessname oder Anfrage] ["took"] [benötigte Zeit in ms] aufgebaut.
+Die Ereignisbeschreibung für die von Prozessen und Anfragen benötigte Zeit ist nach dem Schema [Prozessname oder Anfrage] [‚took‘] [benötigte Zeit in ms] aufgebaut.
 
-Alle Mobilen Anwendungen der Firma Loggen nach dem selben oben benannten Schema. Durch die Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und Behandlung von Leistungsproblemen zeitaufwändig.  Daher sollte die Untersuchung der Leistungsdaten vereinfacht werden. Dies kann durch die automatisierte Extraktion und Aufbereitung der Leistungsdaten aus den Logdaten realisiert werden.
+Alle mobilen Anwendungen der Firma Loggen nach demselben, oben benannten Schema. Wegen der Größe der Logdaten und ihrer Auswertung durch einen Entwickler ist der aktuelle Prozess zur Erkennung und zur Behandlung von Leistungsproblemen zeitaufwändig. Daher sollte die Untersuchung der Leistungsdaten vereinfacht werden, was durch die automatisierte Extraktion und Aufbereitung der Leistungsdaten aus den Logdaten realisiert werden kann.
 <!--
 Der Log ausschnitt in Abbildung \ref{logs} zeigt das Schema nach dem die Logs Generiert werden. Das Schema das verwendet wird ist: [Zeitstempel im ISO8601 Format] [Klasse oder Prozess des Aufrufs] [Log Level] [Ereignis Beschreibung]. Die benötigte Zeit von Prozessen wird geloggt und dient als Anhaltspunkt für Leistungsprobleme. Die durch einen Entwickler zu untersuchenden Logs umfassen ca 5000 Zeilen oder mehr. -->
 
-## Analyse der Daten
+## Analyse der Daten 
 
-Es gibt eine Vielzahl von Analysetechniken, die zur Extraktion von Informationen aus Daten eingesetzt werden können. Zu diesen Techniken gehören maschinelles Lernen, Data Mining und Text Mining.
+Es gibt eine Vielzahl von Analysetechniken, die zur Extraktion von Informationen aus Daten eingesetzt werden können. Zu diesen zählen maschinelles Lernen, Data-Mining und Text-Mining.
 <!--
-### Regressionsanalyse
+### Regressionsanalyse 
 
-Die Regressionsanalyse ist ein statistisches Verfahren, mit dem Beziehungen zwischen Variablen ermittelt werden kann.[@reg] Die Regressionsanalyse beginnt mit der Festlegung einer abhängigen Variablen, die das Ergebnis oder das Ausgangsergebnis darstellt, das untersucht werden soll. Danach werden eine oder mehrere unabhängige Variablen identifiziert, die Einfluss auf das Ergebnis haben. Die abhängige Variable ist der Faktor, der durch die unabhängigen Variablen beeinflusst wird.
+Die Regressionsanalyse ist ein statistisches Verfahren, mit dem Beziehungen zwischen Variablen ermittelt werden kann.[@reg] Die Regressionsanalyse beginnt mit der Festlegung einer abhängigen Variablen, die das Ergebnis oder das Ausgangsergebnis darstellt, das untersucht werden soll. Danach werden eine oder mehrere unabhängige Variablen identifiziert, die Einfluss auf das Ergebnis haben. Die abhängige Variable ist der Faktor, der durch die unabhängigen Variablen beeinflusst wird. 
 -->
 
 ### Maschinelles Lernen
 
-Maschinelles Lernen ist ein Teilgebiet der künstlichen Intelligenz. Es befasst sich mit Algorithmen, welche auf Basis von Trainingsdaten automatisiert erwünschtes Verhalten erlernen.[@Maschinelles] Dabei sollte das Prinzip der Generalisierung gewahrt werde. Das bedeutet, ein erstelltes Modell kann auch auf unbekannte Daten das gewünschte Verhalten liefern.
+Bei maschinellem Lernen handelt es sich um ein Teilgebiet der Künstlichen Intelligenz. Es umfasst Algorithmen, die auf Basis von Trainingsdaten automatisiert erwünschtes Verhalten erlernen.[@Maschinelles] Dabei sollte das Prinzip der Generalisierung gewahrt werden, was bedeutet, dass ein so erstelltes Modell auch mit unbekannten Daten das gewünschte Verhalten liefern kann.
 
-Es wird beim maschinellen Lernen zwischen verschiedenen Arten des Lernens unterschieden:
+Beim maschinellen Lernen wird zwischen folgenden Arten des Lernens unterschieden:
 
-1. Überwachtes Lernen
+1. überwachtes Lernen
+   
+2. unüberwachtes Lernen
 
-2. Unüberwachtes Lernen
+3. bestärkendes Lernen
 
-3. Bestärkendes Lernen
+Beim überwachten Lernen wird anhand klassifizierter Daten ein Modell trainiert, in dem unbekannte Eingabewerte auf sinnvolle Zielwerte bezogen abgebildet werden.[@maschArt] Beim unüberwachten Lernen dagegen werden die Daten nicht klassifiziert. Das Modell soll Strukturen, sogenannte Cluster, in den Daten erkennen. Es gibt dabei keinen Zielwert als Vorgabe.[@maschArt] Beim bestärkenden Lernen wird das Modell durch ein Belohnungssystem trainiert. Dazu wird dem Modell durch Belohnung und Bestrafung mitgeteilt, ob seine Entscheidungen korrekt oder falsch waren. Dies hat zur Folge, dass zukünftige Entscheidungen entweder weiterverfolgt oder geändert werden.[@Maschinelles]
 
-Beim überwachtem Lernen wird anhand von klassifizierten Daten ein Modell trainiert, das unbekannte Eingabewerte auf sinnvolle Zielwerte abbildet.[@maschArt] Beim unüberwachten Lernen dagegen werden die Daten nicht klassifiziert. Das Modell soll Strukturen, sogenannte Cluster, in den Daten erkennen. Es gibt dabei kein Zielwert als Vorgabe.[@maschArt] Beim bestärkenden Lernen wird das Modell durch ein Belohnungssystem trainiert. Dazu wird dem Modell durch Belohnung und Bestrafung mitgeteilt, ob seine Entscheidungen korrekt oder falsch waren. Dies hat zur Folge, dass zukünftige Entscheidungen entweder weiterverfolgt oder geändert werden[@Maschinelles]
-
-Maschinelles Lernen kommt in unterschiedlichen Anwendungen zum Einsatz, in welchen Erkenntnisse aus Daten genutzt werden zur Lösung Praktischer Probleme.[@maschArt] So kann maschinelles Lernen dazu verwendet werden ein Modell zu Trainieren um Muster und Informationen aus Daten zur extrahieren und diese zu Bewerten. Allerdings ist die Modellerstellung aufwendig und die Güte des Modells hängt von der Qualität und Quantität der verfügbaren Daten ab.[@maschArt]
+Maschinelles Lernen kommt in unterschiedlichen Anwendungen zum Einsatz, in deren Rahmen Erkenntnisse aus Daten zur Lösung praktischer Probleme genutzt werden.[@maschArt] So kann maschinelles Lernen dazu verwendet werden, ein Modell dafür zu trainieren, Muster und Informationen aus Daten zur extrahieren sowie zu bewerten. Allerdings ist die Modellerstellung aufwändig und die Güte des Modells hängt von der Qualität sowie der Quantität der verfügbaren Daten ab.[@maschArt] 
 
 ### Data Mining und Text Mining
 
-Data Mining (auch als engl. knowledge discovery in databases (KDD) bezeichnet)[@maschArt] ist ein Prozess, um Muster und Strukturen aus strukturierten Datenbeständen zu extrahieren.[@data] Es gibt verschiedene Methoden für das Data Mining, dazu gehören Clusteranalysen, Bayes-Statistik sowie maschinelles Lernen.[@data]
+Data-Mining (im Englischen auch als Knowledge-Discovery in Databases (KDD) bezeichnet)[@maschArt] ist ein Prozess, mit dem Muster und Strukturen aus strukturierten Datenbeständen extrahiert werden.[@data] Es gibt verschiedene Methoden zum Data-Mining, unter anderem Clusteranalysen, die Bayes-Statistik sowie maschinelles Lernen.[@data] 
 
-Die Clusteranalyse versucht, aufgrund der zwischen den Objekten vorhandenen Proximität eine gegebene Anzahl von Objekten in Gruppen aufzuteilen oder zu Gruppen zusammenzufassen, wobei sowohl eine herkömmliche als auch eine konzeptuelle Clustermethode angewendet werden kann.[@data] Die Cluster werden so konzipiert, dass die Ähnlichkeit der Objekte innerhalb einer Klasse maximiert und die Ähnlichkeit zwischen Objekten verschiedener Klassen minimiert wird.[@data] Das Bayes-Verfahren beruht auf dem bekannten Theorem von Bayes über bedingte Wahrscheinlichkeiten, welches versucht, die Klassifikation so vorzunehmen, dass die bedingte Wahrscheinlichkeit für die Übereinstimmung der Klassenbildung mit der tatsächlichen Datenstruktur anhand der vorliegenden Daten maximiert wird. [@data] Mithilfe von Maschinellem lernen wird ein Modell trainiert, das ein Objekt aufgrund seiner Attribute in eine vorhandene Klasse einteilt. Techniken dazu wurden im Abschnitt [2.3.2 Maschinelles Lernen](#maschinelles-lernen) behandelt.
+Im Fall der Clusteranalyse wird versucht, von der zwischen den Objekten vorhandenen Proximität ausgehend eine gegebene Anzahl von Objekten in Gruppen aufzuteilen oder zu Gruppen zusammenzufassen, wobei sowohl eine herkömmliche als auch eine konzeptuelle Clustermethode angewendet werden kann.[@data] Die Cluster werden so konzipiert, dass die Ähnlichkeit der Objekte innerhalb einer Klasse maximiert und die Ähnlichkeit zwischen Objekten verschiedener Klassen minimiert wird.[@data] Das
+Bayes-Verfahren beruht auf dem bekannten Theorem von Bayes über bedingte
+Wahrscheinlichkeiten, mit dem es die Klassifikation so vorzunehmen gilt, dass die bedingte Wahrscheinlichkeit für die Übereinstimmung der Klassenbildung mit der tatsächlichen Datenstruktur anhand der vorliegenden Daten maximiert wird.[@data] Mithilfe von maschinellem Lernen wird ein Modell trainiert, das ein Objekt aufgrund seiner Attribute in eine vorhandene Klasse einteilt. Techniken dazu wurden in Abschnitt [2.3.2 Maschinelles Lernen](#maschinelles-lernen) behandelt.
 
-Text Mining ist ein Teilgebiet von Data Mining. Dabei werden keine strukturierten Daten, sondern unstrukturierte Texte verarbeitet. Bei der Verarbeitung von Text gibt es einige Besonderheiten im Vergleich zu strukturierten Daten. Text Mining hat dazu eine Reihe von spezifischen Methoden und Ansätze.[@textMin] Die Methoden setzten sich dabei aus Kombinationen verwandter Verfahren, Bereiche wie Data Mining, maschinellem Lernen und natural language processing, zusammen. [@textMin] Das Textmining wird verwendet zur Extraktion nicht trivialer Muster oder Inhalte aus unstrukturierten oder teilweise Strukturierten Texten. Der Prozess für das Textmining ist ähnlich wie beim Data Mining. Sie unterscheiden sich in den Verfahren, die im Prozess verwendet werden.
+Beim Text-Mining handelt es sich um ein Teilgebiet von Data-Mining. Hier werden keine strukturierten Daten, sondern unstrukturierte Texte verarbeitet. Bei der Verarbeitung von Text gibt es einige Besonderheiten im Vergleich zu strukturierten Daten, weshalb im Text-Mining eine Reihe von spezifischen Methoden und Ansätzen genutzt wird.[@textMin] Diese Methoden setzen sich aus Kombinationen verwandter Verfahren, Bereichen wie Data-Mining, maschinellem Lernen und Natural-Language-Processing zusammen.[@textMin] Das Textmining wird zur Extraktion nicht trivialer Muster oder Inhalte aus unstrukturierten sowie teilweise strukturierten Texten verwendet. Der Prozess des Textmining ist ähnlich wie der des Data-Mining. Unterschiede bestehen in den Verfahren, die im Prozess verwendet werden.
 
-Voraussetzung für ein aussagekräftiges Ergebnis bei Data und Text Mining ist die Qualität der Daten. Fehlerhafte oder unvollständige Daten wirken sich negativ auf das Ergebnis aus. Der Schutz der Daten vor Missbrauch und Diebstahl sowie die Einhaltung der geltenden Datenschutzverordnung bei der Verarbeitung sind beim Data Mining zu beachten und eine Herausforderung.
+Die Voraussetzung für ein aussagekräftiges Ergebnis bei Data- und Text-Mining bildet die Qualität der Daten: Fehlerhafte oder unvollständige Daten wirken sich negativ auf das Ergebnis aus. Der Schutz der Daten vor Missbrauch und Diebstahl sowie die Einhaltung der geltenden Datenschutzverordnung bei der Verarbeitung sind beim Data-Mining sicherzustellen und bedeuten meist eine Herausforderung. 
 
 ### Bewertung
 
-Der Aufwand und die Komplexität ein Modell auf Grundlage von Maschinellem lernen zu Trainieren ist im Vergleich zu den Alternativen groß. Obwohl das Verfahren maschinellem Lernen in der Lage wäre, Informationen aus den Logdaten zu Extrahieren und diese sogar automatisiert zu Bewerten wird in Hinblick auf den Aufwand der Komplexität und der unsicheren Qualität des Ergebnisses maschinelles Lernen nicht zur Lösung der Problemstellung verwendet. Allerdings könnte die Verwendung dieses Verfahren in einer weiterführenden Arbeit untersucht werden. Aufgrund der Anforderung, dass Informationen aus Logdaten, welche in Text Form vorliegen, extrahiert werden sollen und Text Mining genau dazu verwendet wird, kommt im weiteren Verlauf der Arbeit Text Mining zum Einsatz.
+Der Aufwand und die Komplexität dessen, ein Modell auf Grundlage von maschinellem Lernen zu trainieren, sind im Vergleich zu den Alternativen hoch. Obwohl das Verfahren maschinellen Lernens geeignet wäre, um Informationen aus den Logdaten zu extrahieren und diese sogar automatisiert zu bewerten, wird der Ansatz begründet durch den Aufwand, die Komplexität und die unsichere Qualität des Ergebnisses vorliegend nicht zur Lösung der Problemstellung verwendet. Allerdings könnte der Einsatz dieses Verfahren in einer weiterführenden Arbeit untersucht werden. Da in dieser Arbeit Informationen aus Logdaten extrahiert werden sollen, die in Textform vorliegen, kommt im weiteren Verlauf Text-Mining zum Einsatz.
 
 ##  CRISP-DM: Prozessmodell für Analyseprojekte
 
-Ein standardisiertes und strukturiertes Vorgehen ermöglicht es, den Einstieg in die Durchführung von Analyseprojekten zu erleichtern und diese zu beschleunigen, die Planung und Verwaltung der erforderlichen Aktivitäten zu vereinfachen und die Validität und Verlässlichkeit der Ergebnisse zu erhöhen. Darüber hinaus fördert ein solches Prozessmodell die Wiederholbarkeit und Nachvollziehbarkeit aller ausgeführten Verarbeitungsschritte und Entscheidungen, was die Dokumentation und Wiederverwendung von Erfahrungen erleichtert. Schließlich hilft ein gemeinsames Verständnis über den allgemeinen Ablauf einer Datenanalyse bei der Kommunikation zwischen allen Beteiligten. Der Cross Industry Standard Process for Data Mining (CRISP-DM) ist ein sehr weitverbreitetes und ausgereiftes Prozessmodell, das ein Analyseprojekt hierarchisch auf vier Abstraktionsebenen herunterbricht. Auf der obersten Ebene wird der Analyseprozess, wie in Abbildung \ref{crisp} dargestellt, in sechs Phasen unterteilt und abgedeckt.[@maschArt2]
+### Überblick
+
+Ein standardisiertes und strukturiertes Vorgehen ermöglicht es, den Einstieg in die Durchführung von Analyseprojekten zu erleichtern und diese zu beschleunigen, die Planung und die Verwaltung der erforderlichen Aktivitäten zu vereinfachen sowie die Validität und die Verlässlichkeit der Ergebnisse zu erhöhen. Darüber hinaus werden mit einem solchen Prozessmodell die Wiederholbarkeit und die Nachvollziehbarkeit aller ausgeführten Verarbeitungsschritte und Entscheidungen maximiert, was die Dokumentation und die Wiederverwendung von Erfahrungen erleichtert. Schließlich hilft ein gemeinsames Verständnis des allgemeinen Ablaufs einer Datenanalyse bei der Kommunikation zwischen allen Beteiligten. Der Cross-Industry-Standard-Process for Data-Mining (CRISP-DM) ist ein weitverbreitetes und ausgereiftes Prozessmodell, mit dem ein Analyseprojekt hierarchisch auf vier Abstraktionsebenen heruntergebrochen wird. Auf der obersten Ebene wird der Analyseprozess wie in Abbildung \ref{crisp} dargestellt in sechs Phasen unterteilt und abgedeckt.[@maschArt2]
 <!-- Es gibt verschiedene Modelle, um Data Mining bzw. Text Mining Prozesse zu entwickeln.[@data] Ein branchenübergreifende Prozess dafür ist CRISP-DM (CRoss-Industry Standard Process for Data Mining) siehe Abbildung \ref{crisp}.-->
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/prozess.jpeg}
-\caption{Prozessdiagramm veranschaulicht die Beziehung zwischen den verschiedenen Phasen des CRISP-DM-Prozesses. Illustration von Görkem Bas, basierend auf IBN SPSS Modeler CRISP-DM Guide}
+\includegraphics[width=1\textwidth,height=1\textheight]{source/figures/crisp.png}
+\caption{Prozessdiagramm zur Beziehung zwischen den verschiedenen Phasen des CRISP-DM-Prozesses(vgl.IBN SPSS Modeler CRISP-DM Guide)}
 \label{crisp}
-\end{figure}
+\end{figure} 
 
-In dieser Arbeit wird ein Fokus auf die fachlichen und analytischen Komponenten der Phasen gelegt. Für eine umfassendere Erläuterung der Thematik ist auf die ausführliche CRISP-DM Dokumentation verwiesen [@chapman].
-Der Analyseprozess beginnt mit dem Business Understanding, folgt aber keinem streng linearen Ablauf. Während der Analyse neugewonnene Erkenntnisse erfordern häufig den mehrfachen Besuch einzelner Phasen. Wenn inhaltlich erforderlich ist ein beliebiger Sprung von einer Phase zur anderen möglich. Die Pfeile im Schaubild zeigen die in einem Analyseprojekt häufigsten zu beobachtenden Sprünge an. Der äußere Kreislauf symbolisiert, dass der gesamte Analyseprozess oft mehrfach durchlaufen wird.[@chapman] [@maschArt2]
+In dieser Arbeit wird der Fokus auf die fachlichen und analytischen Komponenten der Phasen gelegt. Für eine umfassendere Erläuterung der Thematik ist auf die ausführliche CRISP-DM-Dokumentation zu verweisen.[@chapman]
+Der Analyseprozess beginnt mit dem Business-Understanding, folgt aber keinem streng linearen Ablauf. Da während der Analyse neue Erkenntnisse gewonnen werden, müssen einzelne Phasen häufig mehrfach durchlaufen werden. Wenn es inhaltlich sinnvoll ist, ist ein beliebiger Sprung von einer Phase zu einer anderen möglich. Mit den Pfeilen im Schaubild (siehe Abbildung \ref{crisp}) werden die in einem Analyseprojekt am häufigsten zu beobachtenden Sprünge angezeigt. Der äußere Kreislauf symbolisiert, dass der gesamte Analyseprozess oft mehrfach passiert wird.[@chapman] [@maschArt2]
 
 ### Business Understanding
 
-Der Analyseprozess beginnt mit dieser Phase dabei ist es notwendig, den fachlichen Kontext und die Rahmenbedingungen des Anwendungsszenarios zu verstehen und die fachlichen Anforderungen und Ziele mit angemessenen Erfolgskriterien zu bestimmen. Es ist von besonderer Bedeutung zu verstehen, warum dieses Projekt für das Unternehmen von Nutzen ist sowie wie die Ergebnisse der Analyse verwendet werden sollen. Ohne messbare Zielsetzungen ist eine spätere Evaluierung der Analyseergebnisse problematisch. Erfahrungen aus vorhandenen Problembehandlungen innerhalb des Unternehmens sollten in Betracht gezogen werden.[@maschArt2] [@chapman]
+Der Analyseprozess beginnt mit dieser Phase, in der es gilt, den fachlichen Kontext und die Rahmenbedingungen des Anwendungsszenarios zu verstehen sowie die fachlichen Anforderungen und Ziele mit angemessenen Erfolgskriterien zu bestimmen. Es ist von besonderer Bedeutung, nachzuvollziehen, warum dieses Projekt für das Unternehmen von Nutzen ist und wie die Ergebnisse der Analyse verwendet werden sollen. Ohne messbare Zielsetzungen gestaltet sich eine spätere Evaluierung der Analyseergebnisse problematisch. Erfahrungen aus vorhandenen
+Problembehandlungen innerhalb des Unternehmens sollten deshalb in die Betrachtung inkludiert werden.
 
 ### Data Understanding
 
-In der Data-Understanding-Phase erfolgt eine Initialanalyse der zur Verfügung stehenden Daten. Es wird eine Identifizierung relevanter und geeigneter Datenquellen vorgenommen und erste Erkenntnisse über die Daten gewonnen. Die mangelnde Datenqualität sowie die häufig begrenzten Möglichkeiten, diese zu verbessern, stellen ein signifikantes Risiko für eine erfolgreiche Analyse dar. Daher ist es erforderlich, dass Maßnahmen zur Erhöhung der Datenqualität getroffen werden. Dazu gehört auch, alternative Datenquellen zu erschließen, um die Relevanz, Menge und Qualität der Datenbasis zu erhöhen. Ziele und Erwartungshaltungen können durch einen Sprung in die erste Phase korrigiert werden.[@maschArt2]
+In der Data-Understanding-Phase erfolgt eine Initialanalyse der zur Verfügung stehenden Daten. Hierbei werden relevante und geeignete Datenquellen identifiziert sowie erste Erkenntnisse über die Daten gewonnen. Die mangelnde Datenqualität sowie die häufig begrenzten Möglichkeiten, diese zu verbessern, stellen ein signifikantes Risiko der erfolgreichen Analyse dar. Daher ist es erforderlich, Maßnahmen zur Erhöhung der Datenqualität einzuleiten. In ihrem Rahmen gilt es unter anderem alternative Datenquellen zu erschließen, um Relevanz, Menge und Qualität der Datenbasis zu erhöhen. Ziele sowie Erwartungshaltungen können durch einen Sprung in die erste Phase korrigiert werden.
 
 ### Data Preparation
 
-Die Data-Preparation-Phase hat das Ziel, Daten in einem Format aufzubereiten, welches für die nachfolgenden Methoden der Modellierungsphase angemessen ist. Die Datenaufbereitung umfasst eine Reihe von Schritten, darunter die Integration von Daten aus verschiedenen Quellen, die Auswahl der zu verwendenden Datensätze und Merkmale, die Bereinigung, Transformationen, die Normalisierung und das Ableiten neuer Merkmale sowie die Formatierung. Während die Bereinigung und Transformation eine semantische Änderung der Daten beinhaltet, bezieht sich die Formatierung ausschließlich auf Änderungen syntaktischer Natur, die dazu dienen, die Daten für die vorgesehenen Methoden und Werkzeuge aufzubereiten. Die Datenaufbereitung gilt als zentraler Erfolgsfaktor von Analyseprojekten. Da verschiedene Verarbeitungsmethoden unterschiedliche Anforderungen an die Daten stellen, gibt es keine Ideale Daten Aufbereitung. Diese wird durch ein Wechselspiel zwischen Datenvorbereitung und der folgenden Modellierungsphase ermittelt.[@maschArt2]
+Die Data-Preparation-Phase dient dem Ziel, Daten in einem Format aufzubereiten, dass für die nachfolgenden Methoden der Modellierungsphase angemessen ist.
+Die Datenaufbereitung umfasst eine Reihe von Schritten, darunter die Integration von Daten aus verschiedenen Quellen, die Auswahl der zu verwendenden Datensätze und Merkmale, die Bereinigung, die Transformationen, die Normalisierung und das Ableiten neuer Merkmale sowie die Formatierung. Während die Bereinigung und die Transformation eine semantische Änderung der Daten bedeuten, bezieht sich die Formatierung ausschließlich auf Änderungen syntaktischer Natur, die dazu dienen, die Daten für den Einsatz der vorgesehenen Methoden und Werkzeuge aufzubereiten. Die Datenaufbereitung gilt als zentraler Erfolgsfaktor von Analyseprojekten. Da für den Einsatz verschiedener Verarbeitungsmethoden unterschiedliche Anforderungen an die
+Daten gestellt werden, gibt es keine ideale Form der Datenaufbereitung. Die individuell geeignete Gestaltungsweise wird durch ein
+Wechselspiel zwischen der Datenvorbereitung und der nachfolgenden Modellierungsphase ermittelt.
 
 ### Modeling
 
-In der Modellierungsphase werden geeignete Methoden für die jeweilige Analyseaufgabe ausgewählt und angewendet. Dabei müssen verschiedene Einflussfaktoren berücksichtigt werden, wie etwa die Beschaffenheit der Daten, die Verfügbarkeit von Methoden in entsprechenden Analyse-Werkzeugen und letztlich Anforderungen des Unternehmens. Wird eine Methode als adäquat erachtet, wird sie zum Zwecke der Evaluierung in die nächste Phase überführt.[@maschArt2]
+In der Modellierungsphase werden geeignete Methoden für die jeweilige Analyseaufgabe ausgewählt und angewendet. Dabei müssen verschiedene Einflussfaktoren berücksichtigt werden – etwa die Beschaffenheit der Daten, die Verfügbarkeit von Methoden in entsprechenden Analysewerkzeugen und letztlich Anforderungen des Unternehmens. Wird eine Methode als adäquat erachtet, wird sie zum Zweck der Evaluierung in die nächste Phase überführt.
 
 ### Evaluation
 
-Es wird allgemein angenommen, dass sich auch in rein zufällig erzeugten Datenbeständen durch intensive Suche Muster identifizieren lassen, die statistisch signifikant sind.[@maschArt2] Die Evaluierung dieser Muster hinsichtlich ihrer Anwendbarkeit und Relevanz für ein Unternehmen ist jedoch unerlässlich, bevor sie zur Lösung einer fachlichen Fragestellung kommuniziert und anwendet werden. Der Zweck der Evaluierung ist es, den Nutzen der Analyseergebnisse im Kontext der Anwendung zu überprüfen und letztlich die Methode auszuwählen, die die Anforderungen unter Berücksichtigung der Erfolgskriterien am besten erfüllt. Dazu ist es notwendig, dass die Ziele und Erfolgskriterien, die in der Phase des Business Understandings definiert wurden, berücksichtigt werden. Darüber hinaus sollte in dieser Phase der gesamte bisherige Analyseprozess einer Prüfung unterzogen werden. Die Evaluierungsmethoden und -kriterien hängen stark von der spezifischen Analyseaufgabe ab.[@maschArt2]
+Es wird im Allgemeinen angenommen, dass durch eine intensive Suche auch in zufällig erzeugten Datenbeständen Muster identifiziert werden können, die statistisch signifikant sind (vgl. Schacht und Lanquillon 2019). Die Evaluierung dieser Muster hinsichtlich ihrer Anwendbarkeit und Relevanz für ein Unternehmen ist jedoch unerlässlich, bevor sie zur Lösung einer fachlichen Fragestellung kommuniziert sowie angewendet werden. Der Zweck der Evaluierung besteht darin, den Nutzen der Analyseergebnisse im Kontext der Anwendung zu überprüfen und letztlich die Methode auszuwählen, mit der die Anforderungen unter Berücksichtigung der Erfolgskriterien am besten erfüllt werden. Dazu sind Ziele und Erfolgskriterien, die in der Phase Business-Understanding definiert wurden, zu berücksichtigen. Darüber hinaus sollte in dieser Phase der gesamte bisherige Analyseprozess einer Prüfung unterzogen werden. Welche Evaluierungsmethoden und -kriterien geeignet sind, hängt stark von der spezifischen Analyseaufgabe ab.
 
 ### Deployment
 
-Diese Phase stellt sicher, dass die Ergebnisse der Analyse den Anforderungen entsprechen, die mit der geplanten Anwendung verbunden sind. Der Begriff "Deployment" wird als Namensgeber für diese Phase verwendet und bezieht sich auf die Planung und Umsetzung der Anwendung der Ergebnisse. Die Spannbreite der möglichen Nutzung der Ergebnisse reicht von einem einmaligen Erkenntnisgewinn durch Interpretation und Verstehen über eine einmalige, manuelle Anwendung eines Modells auf einen ausgewählten Datenbestand bis hin zu einer regelmäßigen automatischen Anwendung, die durch die Integration in betroffene Geschäftsprozesse realisiert wird. Bei einer regelmäßigen Anwendung ist es erforderlich, ein Modell zu kontrollieren und zu warten, um auf Veränderungen im Anwendungskontext oder der Umwelt angemessen reagieren zu können.[@maschArt2]
+Mit dieser Phase wird sichergestellt, dass die Ergebnisse der Analyse den Anforderungen entsprechen, die mit der geplanten Anwendung verbunden sind. Der Begriff ‚Deployment‘ bezieht sich im gegebenen Kontext auf die Planung und die Umsetzung der Anwendung der Ergebnisse. Die Spannbreite der möglichen Nutzungsbereiche der Resultate reicht von einem einmaligen Erkenntnisgewinn durch Interpretation und Verstehen über eine einmalige manuelle Anwendung eines Modells auf einen ausgewählten Datenbestand bis hin zu einer regelmäßigen automatischen Anwendung, die durch die Integration in betroffene Geschäftsprozesse realisiert wird. Bei einer regelmäßigen Anwendung muss das Modell kontrolliert und gewartet werden, um auf Veränderungen im Anwendungskontext oder in der Umwelt angemessen zu reagieren.[@maschArt2]
 <!--
 Text Mining ist ein Teilgebiet von Data Mining. Dabei werden keine Strukturierten Daten sondern unstrukturierte Texte verarbeitet.<!-- Text Mining ist eine Erweiterung von Data Mining wenn es sich bei den behandelten Daten um einen Text handelt.-> Bei der Verarbeitung von Text gibt es einige Besonderheiten im Vergleich zu Strukturierten Daten. Text Mining hat dazu eine Reihe von spezifischen Methoden und Ansätze.[@textMin] Die Methoden setzten sich dabei aus Kombinationen Verwandter Verfahren, Bereiche wie Data Mining, Maschinellem Lernen und natural language processing, zusammen. [@textMin] Das Text Mining wird verwendet zur Extraktion, nicht Triviale Muster oder Inhalte aus unstrukturierten oder Teilweise Strukturieren Texten. Der Prozess für das Text Mining ist ähnlich wie beim Data Mining. Sie unterscheiden sich in in den Verfahren die im Prozess verwendet werden. -->
 
  <!--
- mithilfe der Logs das gemeldete Problem. Falls ein Problem nachgewiesen wird durch den Entwickler behandelt er dieses.
+ mithilfe der Logs das gemeldete Problem. Falls ein Problem nachgewiesen wird durch den Entwickler behandelt er dieses. 
 Über die in Abbildung \ref{logs} zu sehenden Knopf "Logdatein senden" werden die Logdaten des Gerätes auf den Internen FTP-Server der Brunata hochgeladen.
 
 
 Abbildung \ref{logs} zeigt das Schema für den aufbau der logs auf.
-Die Logs sind dabei nach folgendem Schema aufgebaut: Zeitstempel im ISO8601 Format des Aufrufs, Klasse oder Prozess des Aufrufs, Loglevel und Beschreibung des Ereignis. Ein Beispiel In der Abbildung \ref{logs} ist ein Ausschnitt aus einer Logdatei und das Schema der logs zu sehen. Ein Log beginnt mit dem
+Die Logs sind dabei nach folgendem Schema aufgebaut: Zeitstempel im ISO8601 Format des Aufrufs, Klasse oder Prozess des Aufrufs, Loglevel und Beschreibung des Ereignis. Ein Beispiel In der Abbildung \ref{logs} ist ein Ausschnitt aus einer Logdatei und das Schema der logs zu sehen. Ein Log beginnt mit dem 
 
  Tritt bei der Verwendung einer Mobilen Anwendung der Brunata ein Performanzproblem auf kann der Monteur das Problem Melden. Dabei werden die Logdaten und die Datenbank des Geräts auf den Internen FTP-Server der Brunata hochgeladen. Ein Entwickler untersucht über die gesendete Logdatei das gemeldete Problem.
 
@@ -168,18 +178,18 @@ Die Logs sind dabei nach folgendem Schema aufgebaut: Zeitstempel im ISO8601 Form
 \caption{Ausschnitt aus der Gemo App zum Hochladen der Geräte Logs}
 \label{logs}
 \end{figure}
-Abbildung \ref{logs}
- und über die Anwendung die Logs und Datenbank seines Gerätes auf den Internen FTP-Server der Brunata Hochladen.
+Abbildung \ref{logs} 
+ und über die Anwendung die Logs und Datenbank seines Gerätes auf den Internen FTP-Server der Brunata Hochladen. 
 kann der Monteur nach Abschluss der Arbeit das Problem Melden und die Logs und Datenbank seines Geräts auf den internen FTP-Server der Brunata Hochladen
 
- Gehe darauf ein wie aktuell probleme behandelt wewrden hochladen der Logs und Datanbak in FTP und dann bearbeitung durch einen ENtwickler der das ganze nochmal überprüft und Gggf behandelt
-Aufbau der Logs mit beispiel eines Logs
-danach das Problem das daraus folgt  logs sehr groß und das sollte automatisiert werden
+ Gehe darauf ein wie aktuell probleme behandelt wewrden hochladen der Logs und Datanbak in FTP und dann bearbeitung durch einen ENtwickler der das ganze nochmal überprüft und Gggf behandelt 
+Aufbau der Logs mit beispiel eines Logs 
+danach das Problem das daraus folgt  logs sehr groß und das sollte automatisiert werden 
 
 Danach erkläre verfahren Vorteile und Nachteile und abschließend bewerte sie und entscheide dich für welche wir uns entscheiden DATA Minging
 
 
-Probleme und Mögliche Angriffe durch weitergavbe von Daten
+Probleme und Mögliche Angriffe durch weitergavbe von Daten 
 
 Nächster Schritt aufbereitung der Daten erklärung der einzelenen therorie bausteinen
 
